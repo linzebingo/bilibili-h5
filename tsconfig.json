@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es5",
+            "es2015.promise",
+            "dom"
+        ],
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "pretty": true
+    }
+}
