@@ -31,3 +31,7 @@ npm run build
 - package.json # build script and dependencies
 - tsconfig.json # typescript config
 - typings.json # typescript declaration files
+
+## Extra
+- vue-ts-loader: load TypeScript in vue's single file component, if your want enjoy the convenience of editor, you can put the TypeScript code in a single .ts file and use ts-loader instand of vue-ts-loader
+- av-ts: wrap vue's API in a safe way

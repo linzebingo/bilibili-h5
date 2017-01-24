@@ -1,56 +1,48 @@
-var path = require('path')
+var config = require('../config')
 var webpack = require('webpack')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var merge = require('webpack-merge')
+var baseWebpackConfig = require('./webpack.base.config')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var FriendlyErrors = require('friendly-errors-webpack-plugin')
 
-module.exports = {
-    entry: {
-        app: './src/main.ts',
-        vendors: ['vue']
-    },
+module.exports = merge(baseWebpackConfig, {
     output: {
-        path: path.join(__dirname, '../dist'),
-        filename: '[name].js',
-        chunkFilename: '[name].chunk.js',
-        publicPath: '/dist/'
+        path: config.dev.assetsRoot,
+        publicPath: config.dev.assetsPublicPath
     },
-
     // eval-source-map is faster for development
-    devtool: '#eval-source-map',
-
-    module: {
-        loaders: [
-            { test: /\.vue$/, loader: 'vue' },
-            { test: /\.ts$/, loader: 'ts' },
-            { test: /\.css$/, loader: 'css' },
-            { test: /\.sass$/, loader: 'style!css!sass' },
-            { test: /\.(png|jpg|gif|svg)$/, loader: 'file', options: { name: '[name].[ext]?[hash]' } }
-        ],
-    },
-
     vue: {
         loaders: {
             ts: 'vue-ts-loader',
-            css: ExtractTextPlugin.extract(
-                "style-loader",
-                "css-loader?sourceMap"
-            ),
-            sass: ExtractTextPlugin.extract(
-                'vue-style-loader',
-                'css-loader!sass-loader'
-            ),
+            css: 'style-loader!css-loader?sourceMap',
+            sass: 'vue-style-loader!css-loader!sass-loader'
         },
         esModule: true
     },
-
-    resolve: {
-        extensions: ['', '.ts', '.vue', '.js'],
-        alias: {
-            'vue$': 'vue/dist/vue.common.js'
-        }
+    devtool: '#eval-source-map',
+    devServer: {
+        // webpack-dev-server options
+        contentBase: '',
+        hot: true,
+        inline: true,
+        open: true,
+        port: 8089,
+        // webpack-dev-middleware options
+        quiet: true
     },
-
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-        new ExtractTextPlugin("[name].css", { allChunks: true, resolve: ['modules'] })
+        // 定义一些全局的变量,我们可以在模块当中直接使用这些变量，无需作任何声明
+        new webpack.DefinePlugin({
+            'process.env': config.dev.env
+        }),
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'index.html',
+            inject: true
+        }),
+        new FriendlyErrors()
     ]
-}
+})
