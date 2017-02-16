@@ -24,7 +24,7 @@ module.exports = {
         loaders: [
             { test: /\.vue$/, loader: 'vue' },
             { test: /\.ts$/, loader: 'ts' },
-            { test: /\.css$/, loader: 'css' },
+            { test: /\.css$/, loader: 'style!css' },
             { test: /\.sass$/, loader: 'style!css!sass' },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
