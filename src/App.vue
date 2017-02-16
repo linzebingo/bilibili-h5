@@ -9,3 +9,9 @@
 <script lang="ts" src="./App.ts"></script>
 
 <style lang="sass" src="./asserts/global.scss"></style>
+<style>
+    #app img{
+        width: 300px;
+        height: 200px;
+    }
+</style>
