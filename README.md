@@ -1,8 +1,10 @@
 # vue-ts-webpack
-> a full-featured Webpack setup with hot reload & css extraction
+
+> a full-featured Webpack setup with hot reload & css extraction.
 > This template include vue2 + typescript + webpack + av-ts
 
 ## Usage
+
 ```bash
 
 # install dependencies
@@ -17,6 +19,7 @@ npm run build
 ```
 
 ## Project Structure
+
 ```
 - build/            # webpack config file
 - config/
@@ -37,6 +40,13 @@ npm run build
 ```
 
 ## Inclusion
+
 - vue-ts-loader: load TypeScript in vue's single file component, if your want enjoy the convenience of editor, you can put the TypeScript code in a single .ts file and use ts-loader instand of vue-ts-loader
 - av-ts: wrap vue's API in a safe way
 - vetur(VSCode plugin, which)
+
+## Roadmap
+
+- [x]: add element-ui
+- [ ]: add mock
+- [ ]: add vuex
