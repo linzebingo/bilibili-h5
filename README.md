@@ -4,7 +4,7 @@
 
 [DEMO预览](https://linzebin.github.io/bilibili-h5/dist/)
 
-## Usage
+## Usage2
 
 ```bash
 
