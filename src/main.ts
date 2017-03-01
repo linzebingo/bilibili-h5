@@ -6,6 +6,9 @@ import App from './views/app.vue'
 import * as VueRouter from 'vue-router'
 import * as Vuex from 'vuex'
 
+import 'normalize.css'
+import Index from './views/index.vue';
+
 // Use plugin
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -13,13 +16,13 @@ Vue.use(ElementUI)
 // Vue.component(Button)
 
 // Create the router
-const Home = { template: '<div>A UI libarary based on Vue.js.</div>' }
+const Home = { template: '<div>Bilibili-h5 based on vue.js</div>' }
 const Foo = { template: '<div>foo</div>' }
 const router = new VueRouter({
     mode: 'history',
     base: __dirname,
     routes: [
-        { path: '/', component: Home },
+        { path: '/index', component: Index },
         { path: '/foo', component: Foo }
     ]
 })

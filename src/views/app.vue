@@ -2,17 +2,17 @@
     <div id="app">
 
         <!-- loading-cover and nav-bar -->
-        <div class="app">
+        <div class="app loaded">
             <div class="load-cover">
                 <div class="loading-text">(´・ω・｀)正在加载...</div>
             </div>
-            <div class="nav-bar">
+            <nav class="nav-bar">
                 <div class="nav-wrp">
-                    <a href="//m.bilibili.com/index.html" class="logo">logo</a>
+                    <a href="//m.bilibili.com/index.html" class="logo"></a>
                     <a href="history" class="cell"><i class="nav-icon icon-history"></i></a>
                     <a href="javascript: void(0);" class="cell"><i class="nav-icon icon-search"></i></a>
                 </div>
-            </div>
+            </nav>
         </div>
 
         <!-- search panel -->
@@ -23,13 +23,23 @@
             <div class="flex-bar main">
                 <ul class="flex-bar-in">
                     <li class="nav-item">
-                        <router-link to="/" title="首页">home</router-link>
+                        <router-link to="/index" title="首页">首页</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/foo" title="频道">foo</router-link>
+                        <router-link to="/foo" title="频道">频道</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/foo" title="直播">直播</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/foo" title="排行">排行</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/foo" title="我的ß">我的</router-link>
                     </li>
                 </ul>
             </div>
+            <!-- end of tab panel -->
             <router-view></router-view>
         </div>
     </div>
