@@ -1,7 +1,6 @@
-# vue-ts-webpack
+# bilibili-h5
 
-> a full-featured Webpack setup with hot reload & css extraction.
-> This template include vue2 + typescript + webpack + av-ts
+> 基于Webpack,vue,vuex,vue-router的仿bilibili的h5页面
 
 ## Usage
 
@@ -55,9 +54,16 @@ npm run build
 - plugins
     - [vetur](https://github.com/octref/vetur) - A VSCode plugin
 
-## Roadmap
-
-- [x]: add element-ui
-- [ ]: add mock
-- [ ]: add vue-router
-- [ ]: add vuex
+## Module
+- pages 
+    - index
+    - channel
+    - live
+    - ranking
+    - space
+    - history
+    - search
+- components
+    - topbar: include history & search(modal)
+    - tabs menu: route to page
+    - carousel: 
