@@ -49,6 +49,7 @@ html, body{
     font-size: 14px;
     padding-right: 0.5rem;
     z-index: 10010;
+    border-bottom: 1px solid #e7e7e7;
     .nav-wrp{
         position: relative;
         height: 100%;
@@ -63,4 +64,50 @@ html, body{
         background: url(./logo.png);
         background-size: 63px 28px;
     }
+}
+
+.wrapper{
+    position: relative;
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+
+.flex-bar {
+    padding: 0 0.5rem;
+    height: 41px;
+    line-height: 41px;
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    .flex-bar-in {
+        display: flex;
+        align-items: center;
+        height: 41px;
+        justify-content: space-between;  
+        .on {
+            border-bottom: 4px solid #de698c;
+        }
+        li {
+            width: 60px;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        a {
+            display: block;
+            color: #444;
+        }
+    }
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
 }

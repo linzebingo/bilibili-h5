@@ -22,7 +22,7 @@
             <!-- tab panels -->
             <div class="flex-bar main">
                 <ul class="flex-bar-in">
-                    <li class="nav-item">
+                    <li class="nav-item nav-index on">
                         <router-link to="/index" title="首页">首页</router-link>
                     </li>
                     <li class="nav-item">
@@ -35,7 +35,7 @@
                         <router-link to="/foo" title="排行">排行</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/foo" title="我的ß">我的</router-link>
+                        <router-link to="/foo" title="我的">我的</router-link>
                     </li>
                 </ul>
             </div>
