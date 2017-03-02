@@ -24,8 +24,9 @@ module.exports = merge(baseWebpackConfig, {
         // webpack-dev-server options
         contentBase: '',
         hot: true,
-        inline: true,
-        open: true,
+        inline: true, // 实时刷新
+        historyApiFallback: true,
+        open: true, // 在浏览器窗口中打开
         port: 8089,
         // webpack-dev-middleware options
         quiet: true

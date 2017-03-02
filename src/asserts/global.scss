@@ -1,10 +1,113 @@
-h1{
-    color:red;
-    &:hover{
-        color: blue;
+html, body{
+    background-color: #f4f4f4;
+    font: 1rem/1.5 'Microsoft YaHei', 'Droid Sans Fallback', SimHei, Arial, Helvetica, tahoma, sans-serif;
+}
+
+.app{
+    .load-cover{
+        display: block;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+        z-index: 10010;
+        visibility: visible;
+        background: #f8f8f8;
+        transition: all .3s;
+        .loading-text{
+            position: absolute;
+            top: 50%;
+            text-align: center;
+            width: 100%;
+            height: 2em;
+            line-height: 2em;
+            margin-top: -1em;
+            color: #666;
+        }
+    }
+    &.loaded{
+        .load-cover{
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 }
 
-div.flex{
-    display: -webkit-flex;
+.nav-bar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #fff;
+    background-color: #fff;
+    font-size: 14px;
+    padding-right: 0.5rem;
+    z-index: 10010;
+    border-bottom: 1px solid #e7e7e7;
+    .nav-wrp{
+        position: relative;
+        height: 100%;
+        z-index: 100;
+        background-color: #fff;
+    }
+    .logo{
+        float: left;
+        margin: 6px 0 0 18px;
+        width: 63px;
+        height: 28px;
+        background: url(./logo.png);
+        background-size: 63px 28px;
+    }
+}
+
+.wrapper{
+    position: relative;
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+
+.flex-bar {
+    padding: 0 0.5rem;
+    height: 41px;
+    line-height: 41px;
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    .flex-bar-in {
+        display: flex;
+        align-items: center;
+        height: 41px;
+        justify-content: space-between;  
+        .on {
+            border-bottom: 4px solid #de698c;
+        }
+        li {
+            width: 60px;
+            height: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        a {
+            display: block;
+            color: #444;
+        }
+    }
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
 }
