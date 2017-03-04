@@ -15,6 +15,7 @@ module.exports = merge(baseWebpackConfig, {
         loaders: {
             ts: 'vue-ts-loader',
             css: 'style-loader!css-loader?sourceMap',
+            scss: 'vue-style-loader!css-loader!sass-loader',
             sass: 'vue-style-loader!css-loader!sass-loader'
         },
         esModule: true

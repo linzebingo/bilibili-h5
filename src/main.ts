@@ -7,7 +7,7 @@ import * as VueRouter from 'vue-router'
 import * as Vuex from 'vuex'
 
 import 'normalize.css'
-import Index from './views/index.vue';
+import Index from './views/index.vue'
 
 // Use plugin
 Vue.use(VueRouter)
