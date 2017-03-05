@@ -57,7 +57,7 @@ npm run build
     - [vetur](https://github.com/octref/vetur) - A VSCode plugin
 
 ## Module
-- pages 
+- pages
     - index
     - channel
     - live
@@ -68,4 +68,7 @@ npm run build
 - components
     - topbar: include history & search(modal)
     - tabs menu: route to page
-    - carousel: 
+    - carousel:
+
+## 注意
+- swipejs/types/swipe.d.ts 添加`export = Swipe`

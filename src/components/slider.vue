@@ -4,18 +4,17 @@
             <div>
                 <div class="swipe" id="slider" ref="swipe">
                     <div class="swipe-wrap">
-                        <a href="http://www.bilibili.com/blackboard/activity-HkLTMxVql.html">
-                            <img src="//i0.hdslb.com/bfs/archive/c600abe201fd6de965674fe511edad016c68cac5.jpg" alt="番剧0305">
-                        </a>
-                        <a href="http://www.bilibili.com/blackboard/activity-H1TRm6Lcx.html">
-                            <img src="//i0.hdslb.com/bfs/archive/4770beddd7e6333957a27989b99bda366e0ab8c2.jpg" alt="游戏0303">
+                        <a v-for="item in sliderItems" :href="item.url">
+                            <img :src="item.pic" alt="item.name">
                         </a>
                     </div>
                 </div>
                 <div class="swipe-btn-wrapper">
                     <div class="swipe-btn-list">
-                        <a :class="[active===0?activeClass:'']" @click="switchSwipe($event,0)"></a>
-                        <a :class="[active===1?activeClass:'']" @click="switchSwipe($event,1)"></a>
+                        <a v-for="(item,$index) in sliderItems"
+                            :class="[$index ===active?activeClass:'']"
+                            @click="switchSwipe($event,$index)">
+                        </a>
                     </div>
                 </div>
             </div>

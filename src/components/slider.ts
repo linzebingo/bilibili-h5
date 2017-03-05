@@ -1,12 +1,32 @@
 import { Vue, Component, Lifecycle } from 'av-ts'
 import Swipe = require('swipejs') // https://github.com/lyfeyaj/swipe
 
+interface Banner {
+    id: number;
+    contract_id: string;
+    pos_num: number;
+    name: string;
+    pic: string;
+    litpic: string;
+    url: string;
+    style: number;
+    agency: string;
+    label: string;
+    intro: string;
+    area: number;
+    is_ad_loc: boolean;
+    ad_cb: string;
+    titile: string;
+}
+
 @Component()
 export default class Slider extends Vue {
 
     active = 0
     activeClass = "on"
     swiper: Swipe = undefined
+    showError = false
+    sliderItems = new Array<Banner>();
 
 
     get wrapperHight() {
@@ -14,7 +34,19 @@ export default class Slider extends Vue {
     }
 
     @Lifecycle mounted() {
-        this.initSwipe();
+        this.fetchData();
+    }
+
+    fetchData() {
+        this.$http.jsonp('http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=7&id=1695').then(response => {
+            // success callback
+            this.sliderItems = response.data['data'] || [];
+            this.$nextTick(() => this.initSwipe());
+        }, response => {
+            // error callback
+            this.showError = true;
+        })
+
     }
 
     initSwipe() {
@@ -27,8 +59,8 @@ export default class Slider extends Vue {
             continuous: true,
             disableScroll: true,
             stopPropagation: true,
-            callback:  (index, element) => { this.active = index; },
-            transitionEnd:  (index, element) => { }
+            callback: (index, element) => { this.active = index; },
+            transitionEnd: (index, element) => { }
         });
     }
 
