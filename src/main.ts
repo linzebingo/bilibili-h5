@@ -1,17 +1,16 @@
 import { Vue } from 'av-ts'
-import * as ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
 import App from './views/app.vue'
 
 import * as VueRouter from 'vue-router'
 import * as Vuex from 'vuex'
+import * as VueResource from 'vue-resource'
 
 import 'normalize.css'
-import Index from './views/index.vue';
+import Index from './views/index.vue'
 
 // Use plugin
 Vue.use(VueRouter)
-Vue.use(ElementUI)
+Vue.use(VueResource)
 // 或者可以按需引入需要的组件
 // Vue.component(Button)
 
@@ -22,6 +21,7 @@ const router = new VueRouter({
     mode: 'history',
     base: __dirname,
     routes: [
+        { path: '/', redirect: '/index' }, // 将根路径重定向到/index路径
         { path: '/index', component: Index },
         { path: '/foo', component: Foo }
     ]

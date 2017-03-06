@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="sliderWrapper"></div>
+        <Slider id="sliderWrapper"></Slider>
         <div class="row-container">
             <a href="#" class="header"></a>
             <ul class="content-wrapper">
