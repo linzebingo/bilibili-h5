@@ -1,5 +1,6 @@
-import { Vue, Component, Lifecycle } from 'av-ts'
 import Swipe = require('swipejs') // https://github.com/lyfeyaj/swipe
+import * as Vue from 'vue'
+import Component from 'vue-class-component'
 
 interface Banner {
     id: number;
@@ -19,7 +20,7 @@ interface Banner {
     titile: string;
 }
 
-@Component()
+@Component
 export default class Slider extends Vue {
 
     active = 0
@@ -33,7 +34,7 @@ export default class Slider extends Vue {
         return (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 3.2;
     }
 
-    @Lifecycle mounted() {
+    mounted() {
         this.fetchData();
     }
 

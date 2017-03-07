@@ -8,7 +8,7 @@ module.exports = {
         app: './src/main.ts'
     },
     resolve: {
-        extensions: ['', '.ts', '.vue', '.js'],
+        extensions: ['.ts', '.vue', '.js'],
         alias: {
             'vue$': 'vue/dist/vue.common.js',
             'src': path.resolve(__dirname, '../src'),
@@ -16,19 +16,23 @@ module.exports = {
             'components': path.resolve(__dirname, '../src/components')
         }
     },
-    resolveLoader: {
-        fallback: [path.join(__dirname, '../node_modules')]
-    },
 
     module: {
-        loaders: [
-            { test: /\.vue$/, loader: 'vue' },
-            { test: /\.ts$/, loader: 'ts' },
-            { test: /\.css$/, loader: 'style!css' },
-            { test: /\.sass$/, loader: 'style!css!sass' },
+        rules: [
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                }
+            },
+            { test: /\.css$/, loader: 'style-loader!css-loader' },
+            { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' },
+            { test: /\.sass$/, loader: 'style-loader!css-loader!sass-loader' },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url',
+                loader: 'url-loader',
                 query: {
                     limit: 10000,
                     name: 'img/[name].[hash:7].[ext]'
@@ -36,19 +40,12 @@ module.exports = {
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url',
+                loader: 'url-loader',
                 query: {
                     limit: 10000,
                     name: 'fonts/[name].[hash:7].[ext]'
                 }
             }
         ],
-    },
-    vue: {
-        postcss: [
-            require('autoprefixer')({
-                browsers: ['last 2 versions']
-            })
-        ]
     }
 }

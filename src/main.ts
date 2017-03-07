@@ -1,11 +1,13 @@
-import { Vue } from 'av-ts'
-import App from './views/app.vue'
+// import { Vue } from 'av-ts'
+// import App from './views/app.vue'
+import * as Vue from 'vue'
 
-import * as VueRouter from 'vue-router'
+import  VueRouter from 'vue-router'
 import * as Vuex from 'vuex'
 import * as VueResource from 'vue-resource'
 
 import 'normalize.css'
+import App from './views/App.vue'
 import Index from './views/index.vue'
 
 // Use plugin

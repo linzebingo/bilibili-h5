@@ -19,19 +19,36 @@ module.exports = merge(baseWebpackConfig, {
 
     devtool: config.build.productionSourceMap ? '#source-map' : false,
 
-    vue: {
-        loaders: {
-            ts: 'vue-ts-loader',
-            css: ExtractTextPlugin.extract(
-                'style-loader',
-                'css-loader?sourceMap'
-            ),
-            sass: ExtractTextPlugin.extract(
-                'vue-style-loader',
-                'css-loader!sass-loader'
-            ),
-        },
-        esModule: true
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        ts: 'ts-loader',
+                        css: ExtractTextPlugin.extract({
+                            fallback: 'style-loader',
+                            use: 'css-loader?sourceMap'
+                        }),
+                        scss: ExtractTextPlugin.extract({
+                            fallback: 'vue-style-loader',
+                            use: 'css-loader!sass-loader'
+                        }),
+                        sass: ExtractTextPlugin.extract({
+                            fallback: 'vue-style-loader',
+                            use: 'css-loader!sass-loader'
+                        })
+                    },
+                    postcss: [
+                        require('autoprefixer')({
+                            browsers: ['last 2 versions']
+                        })
+                    ],
+                    esModule: true,
+                }
+            },
+        ]
     },
 
     plugins: [
@@ -45,7 +62,7 @@ module.exports = merge(baseWebpackConfig, {
             }
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new ExtractTextPlugin("css/[name].[contenthash].css", { allChunks: true, resolve: ['modules'] }),
+        new ExtractTextPlugin({filename:"css/[name].[contenthash].css",  disable: false, allChunks: true }),
         new HtmlWebpackPlugin({
             filename: config.build.index,
             template: 'index.html',
