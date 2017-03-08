@@ -3,9 +3,10 @@ import * as Vue from 'vue'
 import VueRouter from 'vue-router'
 import * as Vuex from 'vuex'
 import * as VueResource from 'vue-resource'
+import * as FastClick from 'fastclick'
 
 import 'normalize.css'
-import App from './views/App.vue'
+import App from './app.vue'
 import Index from './views/index.vue'
 
 // Use plugin
@@ -44,3 +45,8 @@ new Vue({
     router,
     render: h => h(App)
 }).$mount('#app')
+
+
+document.addEventListener('load',()=>{
+    FastClick.attach(document.body)
+})

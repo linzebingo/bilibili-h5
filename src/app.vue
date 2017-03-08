@@ -40,20 +40,35 @@
                 </ul>
             </div>
             <!-- end of tab panel -->
-            <router-view></router-view>
+            <transition name="router-slide">
+                <router-view class="wrapper-content"></router-view>
+            </transition>
+ 
         </div>
     </div>
 </template>
 
-<script lang="ts" src="./app.ts"></script>
+<script lang="ts">
+    import * as Vue from 'vue'
+    import Component from 'vue-class-component'
 
-<style lang="scss" src="../asserts/global.scss"></style>
+    @Component
+    export default class App extends Vue {
+        appload = false //结构页
+        
+        mounted(){
+            this.appload = true
+        }
+    }
+</script>
+
+<style lang="scss" src="./asserts/global.scss"></style>
 
 <style>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
-}
-.fade-enter, .fade-leave-active {
-  opacity: 0
-}
+    .router-slide-enter-active, .router-slide-leave-active {
+	  	transition: all .3s;
+	}
+	.router-slide-enter, .router-slide-leave-active {
+	  	transform: translateX(-100%);
+	}
 </style>

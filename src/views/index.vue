@@ -7,88 +7,28 @@
                     <span></span>
                     <span>热门推荐</span>
                 </div>
-                <div class="right">
+                <div class="right hot">
                     <span></span>
                     <span>排行榜</span>
                 </div>
             </router-link>
-            <ul class="content-wrapper">
-                <li class="content-list">
-                    <a href="" class="item">
+            <ul class="content-wrapper" v-if="recommendItems && recommendItems.length > 0">
+                <li class="content-list" v-for="item in recommendItems">
+                    <a href="item.link" class="item">
                         <div class="top">
                             <div class="cover-img" style="opacity: 1; background-image: url('//i1.hdslb.com/bfs/archive/6df5d7d9367faf1b12c734f3ad72aa1a55dfa321.jpg_320x200.jpg');"></div>
                         </div>
                     </a>
-                    <a href="" class="info">
-                        <div class="title">【かや】FREELY TOMORROW / KAYA Ver.【部分即興】</div>
+                    <a href="item.link" class="info">
+                        <div class="title">{{item.title}}</div>
                         <div class="meta clearfix">
                             <div class="cell left">
                                 <span></span>
-                                <span>22.4万</span>
+                                <span>{{item.play}}</span>
                             </div>
                             <div class="cell left">
                                 <span></span>
-                                <span>1959</span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="content-list">
-                    <a href="" class="item">
-                        <div class="top">
-                            <div class="cover-img" style="opacity: 1; background-image: url('//i1.hdslb.com/bfs/archive/6df5d7d9367faf1b12c734f3ad72aa1a55dfa321.jpg_320x200.jpg');"></div>
-                        </div>
-                    </a>
-                    <a href="" class="info">
-                        <div class="title">【かや】FREELY TOMORROW / KAYA Ver.【部分即興】</div>
-                        <div class="meta clearfix">
-                            <div class="cell left">
-                                <span></span>
-                                <span>22.4万</span>
-                            </div>
-                            <div class="cell left">
-                                <span></span>
-                                <span>1959</span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="content-list">
-                    <a href="" class="item">
-                        <div class="top">
-                            <div class="cover-img" style="opacity: 1; background-image: url('//i1.hdslb.com/bfs/archive/6df5d7d9367faf1b12c734f3ad72aa1a55dfa321.jpg_320x200.jpg');"></div>
-                        </div>
-                    </a>
-                    <a href="" class="info">
-                        <div class="title">【かや】FREELY TOMORROW / KAYA Ver.【部分即興】</div>
-                        <div class="meta clearfix">
-                            <div class="cell left">
-                                <span></span>
-                                <span>22.4万</span>
-                            </div>
-                            <div class="cell left">
-                                <span></span>
-                                <span>1959</span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="content-list">
-                    <a href="" class="item">
-                        <div class="top">
-                            <div class="cover-img" style="opacity: 1; background-image: url('//i1.hdslb.com/bfs/archive/6df5d7d9367faf1b12c734f3ad72aa1a55dfa321.jpg_320x200.jpg');"></div>
-                        </div>
-                    </a>
-                    <a href="" class="info">
-                        <div class="title">【かや】FREELY TOMORROW / KAYA Ver.【部分即興】</div>
-                        <div class="meta clearfix">
-                            <div class="cell left">
-                                <span></span>
-                                <span>22.4万</span>
-                            </div>
-                            <div class="cell left">
-                                <span></span>
-                                <span>1959</span>
+                                <span>{{item.video_review}}</span>
                             </div>
                         </div>
                     </a>
@@ -112,6 +52,24 @@
             height: 44px;
             line-height: 44px;
             padding: 0 12px;
+            .left {
+                float: left;
+                color: #444;
+                font-size: 14px;
+                position: relative;
+                padding-left: 25px;
+            }
+            .right {
+                float: right;
+                font-size: 14px;
+                color: #999;
+                position: relative;
+                padding-left: 25px;
+            }
+            .hot {
+                font-size: 13px;
+                color: #ffb30f;
+            }
         }
         * {
             box-sizing: border-box;
@@ -190,6 +148,8 @@
         .left {
             float: left;
         }
+
+
     }
 
     .clearfix:after{
