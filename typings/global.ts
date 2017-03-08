@@ -3,4 +3,4 @@ declare module "*.vue" {
     export default typeof Vue
 }
 
-declare var __dirname;
+declare var __dirname: string;

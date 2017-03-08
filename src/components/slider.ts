@@ -29,7 +29,6 @@ export default class Slider extends Vue {
     showError = false
     sliderItems = new Array<Banner>();
 
-
     get wrapperHight() {
         return (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 3.2;
     }
