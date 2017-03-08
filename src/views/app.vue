@@ -2,8 +2,8 @@
     <div id="app">
 
         <!-- loading-cover and nav-bar -->
-        <div class="app loaded">
-            <div class="load-cover">
+        <div class="app" :class="{appload:appload}">
+            <div class="load-cover" v-show="!appload">
                 <div class="loading-text">(´・ω・｀)正在加载...</div>
             </div>
             <nav class="nav-bar">
@@ -22,21 +22,21 @@
             <!-- tab panels -->
             <div class="flex-bar main">
                 <ul class="flex-bar-in">
-                    <li class="nav-item nav-index on">
-                        <router-link to="/index" title="首页">首页</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/foo" title="频道">频道</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/foo" title="直播">直播</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/foo" title="排行">排行</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/foo" title="我的">我的</router-link>
-                    </li>
+                    <router-link tag="li" to="/index" class="nav-item">
+                        <a title="首页">首页</a>
+                    </router-link>
+                    <router-link tag="li" to="/live" class="nav-item">
+                        <a title="直播">直播</a>
+                    </router-link>
+                    <router-link tag="li" to="/channel" class="nav-item">
+                        <a title="频道">频道</a>
+                    </router-link>
+                    <router-link tag="li" to="/ranking" class="nav-item">
+                        <a title="排行">排行</a>
+                    </router-link>
+                    <router-link tag="li" to="/space" class="nav-item">
+                        <a title="我的">我的</a>
+                    </router-link>
                 </ul>
             </div>
             <!-- end of tab panel -->
@@ -48,3 +48,12 @@
 <script lang="ts" src="./app.ts"></script>
 
 <style lang="scss" src="../asserts/global.scss"></style>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+</style>
