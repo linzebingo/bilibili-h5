@@ -16,7 +16,7 @@
                 <li class="content-list" v-for="item in recommendItems">
                     <a href="item.link" class="item">
                         <div class="top">
-                            <div class="cover-img" style="opacity: 1; background-image: url('//i1.hdslb.com/bfs/archive/6df5d7d9367faf1b12c734f3ad72aa1a55dfa321.jpg_320x200.jpg');"></div>
+                            <div class="cover-img" :style="defaultImg"></div>
                         </div>
                     </a>
                     <a href="item.link" class="info">

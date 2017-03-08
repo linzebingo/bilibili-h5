@@ -2,6 +2,7 @@
 import * as Vue from 'vue'
 import Component from 'vue-class-component'
 import Slider from 'components/slider.vue'
+import recommends_data from './recommends_data'
 
 @Component({
     components: { Slider }
@@ -21,8 +22,9 @@ export default class Index extends Vue {
 
     handleData(resp: RecommendItemsResponse) {
         var itemArray = new Array<RecommendItem>(), limit = 4
-        if (resp.recommend && 0 === resp.recommend.code && limit > 0) {
+        if (resp.recommend && 0 === resp.recommend.code) {
             for (let item in resp.recommend.list) {
+                if (limit <= 0) { break }
                 resp.recommend.list[item].link = "//www.bilibili.com/mobile/video/av" + resp.recommend.list[item].aid + ".html"
                 itemArray.push(resp.recommend.list[item])
                 limit--
@@ -33,12 +35,15 @@ export default class Index extends Vue {
 
     fetchData() {
         this.loading = true
-        this.$http.jsonp("//www.bilibili.com/index/ranking-3day.json", { credentials: false }).then(response => {
-            this.loading = false;
-            this.handleData(response.data as RecommendItemsResponse)
-        }, response => {
-            console.error('fetch ranking-3day failed')
-        })
+        // this.$http.jsonp("//www.bilibili.com/index/ranking-3day.json", { credentials: false }).then(response => {
+        //     this.loading = false;
+        //     this.handleData(response.data as RecommendItemsResponse)
+        // }, response => {
+        //     console.error('fetch ranking-3day failed')
+        // })
+
+        this.handleData(recommends_data);
+        this.loading = false
     }
 
     delayImg() {
@@ -51,9 +56,11 @@ export default class Index extends Vue {
 interface RecommendItem {
     aid: string,
     typename: string,
+    title: string,
     subtitle: string,
     play: number,
-    preview: number,
+    review: number,
+    preview?: number,
     video_review: number,
     favorites: number,
     mid: number,
@@ -64,7 +71,7 @@ interface RecommendItem {
     coins: number,
     duration: string,
     badgepay: boolean,
-    link: string
+    link?: string
 }
 interface RecommendItemsResponse {
     recommend: {
