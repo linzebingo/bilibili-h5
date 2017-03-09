@@ -4,6 +4,7 @@
   "description": "A Vue.js+TypeScript project",
   "main": "index.js",
   "scripts": {
+    "preinstall": "typings install",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "build": "webpack --config build/webpack.prod.config.js"
   },
