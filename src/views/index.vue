@@ -1,40 +1,12 @@
 <template>
     <div>
         <Slider id="sliderWrapper"></Slider>
-        <div class="row-container" id="hotRecommand">
-            <router-link to="/index" class="header">
-                <div class="left">
-                    <span></span>
-                    <span>热门推荐</span>
-                </div>
-                <div class="right hot">
-                    <span></span>
-                    <span>排行榜</span>
-                </div>
-            </router-link>
-            <ul class="content-wrapper" v-if="recommendItems && recommendItems.length > 0">
-                <li class="content-list" v-for="item in recommendItems">
-                    <a href="item.link" class="item">
-                        <div class="top">
-                            <div class="cover-img" :style="defaultImg"></div>
-                        </div>
-                    </a>
-                    <a href="item.link" class="info">
-                        <div class="title">{{item.title}}</div>
-                        <div class="meta clearfix">
-                            <div class="cell left">
-                                <span></span>
-                                <span>{{item.play}}</span>
-                            </div>
-                            <div class="cell left">
-                                <span></span>
-                                <span>{{item.video_review}}</span>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+
+
+        <HotRecommend id="hotRecommand"></HotRecommend>
+        <LiveRecommend id="liveRecommand"></LiveRecommend>
+
+
     </div>
 </template>
 
@@ -47,7 +19,7 @@
         margin-bottom: 12px;
         background-color: #fff;
         box-sizing: border-box;
-        .header{
+        .header {
             display: block;
             height: 44px;
             line-height: 44px;
@@ -87,7 +59,6 @@
             padding: 0 6px 24px;
             vertical-align: top;
             float: left;
-
             .item {
                 display: block;
                 width: 100%;
@@ -117,7 +88,6 @@
                     border-radius: 5px;
                 }
             }
-
             .info {
                 position: relative;
                 display: block;
@@ -141,18 +111,64 @@
                     overflow: hidden;
                     white-space: nowrap;
                 }
+                .avator {
+                    position: relative;
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 21px;
+                    border: 2px solid #fff;
+                    top: -26px;
+                    left: 7px;
+                    z-index: 10;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        vertical-align: top;
+                    }
+                }
+                .user {
+                    position: absolute;
+                    left: 0;
+                    top: 5px;
+                    width: 100%;
+                    padding-left: 56px;
+                }
+                .name {
+                    font-size: 13px;
+                    color: #444;
+                }
+                .desp {
+                    font-size: 13px;
+                    color: #999;
+                    padding-top: 2px;
+                }
+                .online {
+                    position: absolute;
+                    top: 25px;
+                    width: 48px;
+                    padding: 0 1px;
+                    color: #fff;
+                    background-color: #ccc;
+                    border-radius: 6px;
+                    text-align: center;
+                    height: 20px;
+                    line-height: 20px;
+                    font-size: 12px;
+                }
             }
-
         }
-
         .left {
             float: left;
         }
-
-
+        .text-overflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
     }
-
-    .clearfix:after{
+    
+    .clearfix:after {
         content: "";
         display: block;
         height: 0;
