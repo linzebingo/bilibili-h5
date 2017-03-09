@@ -4,3 +4,5 @@ dist
 yarn.lock
 .vscode
 .DS_Store
+typings
+!typings/global.d.ts

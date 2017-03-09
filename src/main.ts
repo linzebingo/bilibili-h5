@@ -9,11 +9,17 @@ import 'normalize.css'
 import App from './app.vue'
 import Index from './views/index.vue'
 
+Vue.filter('count', (value: number) => {
+    if (value < 10000) {
+        return value.toString()
+    }
+    return (value / 10000).toFixed(1) + '万'
+})
+
+
 // Use plugin
 Vue.use(VueRouter)
 Vue.use(VueResource)
-// 或者可以按需引入需要的组件
-// Vue.component(Button)
 
 // Create the router
 const Channel = { template: '<div>channel</div>' }
@@ -46,7 +52,6 @@ new Vue({
     render: h => h(App)
 }).$mount('#app')
 
-
-document.addEventListener('load',()=>{
+document.addEventListener('load', () => {
     FastClick.attach(document.body)
 })

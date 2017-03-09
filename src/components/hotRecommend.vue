@@ -22,11 +22,11 @@
                     <div class="meta clearfix">
                         <div class="cell left">
                             <span></span>
-                            <span>{{item.play}}</span>
+                            <span>{{ item.play | count }}</span>
                         </div>
                         <div class="cell left">
                             <span></span>
-                            <span>{{item.video_review}}</span>
+                            <span>{{ item.video_review }}</span>
                         </div>
                     </div>
                 </a>
