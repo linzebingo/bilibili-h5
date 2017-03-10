@@ -14,7 +14,7 @@
             <li class="content-list" v-for="item in liveItems">
                 <a :href="item.link" class="item">
                     <div class="top">
-                        <div class="cover-img" :style="defaultImg"></div>
+                        <div class="cover-img" :data-img="item.cover" :style="item.cover | imageURL"></div>
                     </div>
                 </a>
                 <a :href="item.link" class="info clearfix">

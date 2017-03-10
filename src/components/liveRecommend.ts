@@ -12,7 +12,7 @@ export default class LiveRecommend extends Vue {
     }
 
     mounted() {
-        this.fetchData();
+        this.fetchData()
     }
 
     fetchData() {
@@ -55,4 +55,3 @@ interface LiveRecommendItem {
     title: string;
     online: number;
 }
-

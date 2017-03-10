@@ -53,7 +53,8 @@ npm run build
     - [vue-class-component](https://github.com/vuejs/vue-class-component) - TypeScript decorator for class-style Vue components.
 - plugins
     - [vetur](https://github.com/octref/vetur) - A VSCode plugin
-
+    - [chrome跨域插件](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljb) - 解决跨域问题
+    
 ## Module
 - pages
     - index

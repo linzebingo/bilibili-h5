@@ -1,5 +1,5 @@
 import * as Vue from 'vue'
-
+import './mixin'
 import VueRouter from 'vue-router'
 import * as Vuex from 'vuex'
 import * as VueResource from 'vue-resource'

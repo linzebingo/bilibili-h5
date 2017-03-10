@@ -13,8 +13,9 @@
         <ul class="content-wrapper" v-if="recommendItems && recommendItems.length > 0">
             <li class="content-list" v-for="item in recommendItems">
                 <a :href="item.link" class="item">
-                    <div class="top">
-                        <div class="cover-img" :data-img="item.pic"></div>
+                    <div class="top" :data-img="item.pic">
+                        <div class="cover-img" 
+                            :style="item.pic | imageURL"></div>
                     </div>
                 </a>
                 <a :href="item.link" class="info">
