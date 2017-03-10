@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "videojs": "registry:dt/videojs#5.16.0+20170223151516",
         "vue-resource": "github:linzebin/vue-resource-dts"
     }
 }

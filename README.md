@@ -48,11 +48,9 @@ npm run build
     - [Yarn]() - Fast, reliable, and secure dependency management.
     - [Vuex]() - Centralized State Management for Vue.js.
     - [VueRouter]() -  It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze.
-    - [Element](http://element.eleme.io/#/zh-CN) - Desktop UI elements for Vue.js 2.0
     - [Webpack]() - A bundler for javascript and friends. Packs many modules into a few bundled assets.
-- dependencies
-    - [vue-ts-loader](https://github.com/HerringtonDarkholme/vue-ts-loader) - Load TypeScript in vue's single file component, if your want enjoy the convenience of editor, you can put the TypeScript code in a single .ts file and use ts-loader instand of vue-ts-loader
-    - [av-ts](https://github.com/HerringtonDarkholme/av-ts) -  Wrap vue's API in a safe way
+- dependenciesconvenience of editor, you can put the TypeScript code in a single .ts file and use ts-loader instand of vue-ts-loader
+    - [vue-class-component](https://github.com/vuejs/vue-class-component) - TypeScript decorator for class-style Vue components.
 - plugins
     - [vetur](https://github.com/octref/vetur) - A VSCode plugin
 

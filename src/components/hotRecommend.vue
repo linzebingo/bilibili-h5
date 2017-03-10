@@ -1,6 +1,6 @@
 <template>
     <div class="row-container">
-        <router-link to="/index" class="header">
+        <router-link to="/ranking" class="header">
             <div class="left">
                 <span></span>
                 <span>热门推荐</span>

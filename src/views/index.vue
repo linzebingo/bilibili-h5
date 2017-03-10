@@ -1,12 +1,8 @@
 <template>
     <div>
         <Slider id="sliderWrapper"></Slider>
-
-
         <HotRecommend id="hotRecommand"></HotRecommend>
         <LiveRecommend id="liveRecommand"></LiveRecommend>
-
-
     </div>
 </template>
 

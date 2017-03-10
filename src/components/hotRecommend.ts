@@ -21,7 +21,8 @@ export default class HotRecommend extends Vue {
         if (resp.recommend && 0 === resp.recommend.code) {
             for (let item in resp.recommend.list) {
                 if (limit <= 0) { break }
-                resp.recommend.list[item].link = "//www.bilibili.com/mobile/video/av" + resp.recommend.list[item].aid + ".html"
+                resp.recommend.list[item].link = "/video/av" + resp.recommend.list[item].aid
+                // this.$router.push('/video/av' + resp.recommend.list[item].aid);
                 itemArray.push(resp.recommend.list[item])
                 limit--
             }
@@ -31,14 +32,14 @@ export default class HotRecommend extends Vue {
 
     fetchData() {
         this.loading = true
-        // this.$http.jsonp("//www.bilibili.com/index/ranking-3day.json", { credentials: false }).then(response => {
-        //     this.loading = false;
-        //     this.handleData(response.data as RecommendItemsResponse)
-        // }, response => {
-        //     console.error('fetch ranking-3day failed')
-        // })
+        this.$http.get("//www.bilibili.com/index/ranking-3day.json", { credentials: false }).then(response => {
+            this.loading = false;
+            this.handleData(response.data as RecommendItemsResponse)
+        }, response => {
+            console.error('fetch ranking-3day failed')
+        })
 
-        this.handleData(recommend_data);
+        // this.handleData(recommend_data);
         this.loading = false
     }
 
