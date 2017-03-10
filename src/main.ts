@@ -8,14 +8,8 @@ import * as FastClick from 'fastclick'
 import 'normalize.css'
 import App from './app.vue'
 import Index from './views/index.vue'
-
-Vue.filter('count', (value: number) => {
-    if (value < 10000) {
-        return value.toString()
-    }
-    return (value / 10000).toFixed(1) + '万'
-})
-
+import Video from './views/video.vue'
+import filters from './filters'
 
 // Use plugin
 Vue.use(VueRouter)
@@ -26,7 +20,11 @@ const Channel = { template: '<div>channel</div>' }
 const Live = { template: '<div>live</div>' }
 const Ranking = { template: '<div>ranking</div>' }
 const Space = { template: '<div>space</div>' }
-const NotFound = { template: '<div>404 not found</div>' }
+const NotFound = { template: '<div>404 not found.</div>' }
+
+// 路由懒加载
+// const Bar = resolve => require.ensure([], () => resolve(require('./Bar.vue')), '/bar')
+// const Baz = resolve => require.ensure([], () => resolve(require('./Baz.vue')), '/bar')
 const router = new VueRouter({
     mode: 'history',
     base: __dirname,
@@ -37,7 +35,8 @@ const router = new VueRouter({
         { path: '/live', component: Live },
         { path: '/ranking', component: Ranking },
         { path: '/space', component: Space },
-        { path: '*', component: NotFound }
+        { path: '/video/:id', component: Video },
+        { path: '*', component: NotFound } //放在最后一个
     ],
     linkActiveClass: 'on'
 })
@@ -45,6 +44,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     console.log(`${from.fullPath}-->${to.fullPath}`)
     next()
+})
+
+Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
 })
 
 new Vue({
