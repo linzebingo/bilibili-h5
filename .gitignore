@@ -5,7 +5,4 @@ yarn.lock
 .vscode
 .DS_Store
 typings
-<<<<<<< HEAD
-=======
 !typings/global.d.ts
->>>>>>> a05c25397f9fb9a8f7370fba5cbf874e511e060b
