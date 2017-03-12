@@ -40,9 +40,9 @@
                 </ul>
             </div>
             <!-- end of tab panel -->
-            <transition name="router-slide">
+            <!--<transition name="router-slide">-->
                 <router-view class="wrapper-content"></router-view>
-            </transition>
+            <!--</transition>-->
  
         </div>
     </div>

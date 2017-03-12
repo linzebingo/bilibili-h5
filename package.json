@@ -4,6 +4,7 @@
   "description": "A Vue.js+TypeScript project",
   "main": "index.js",
   "scripts": {
+    "preinstall": "typings install",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "build": "webpack --config build/webpack.prod.config.js"
   },
@@ -17,6 +18,7 @@
     "fastclick": "^1.0.6",
     "normalize.css": "^5.0.0",
     "swipejs": "^2.2.4",
+    "video.js": "^5.17.0",
     "vue": "^2.2.1",
     "vue-resource": "^1.2.1",
     "vue-router": "^2.3.0",
