@@ -1,6 +1,6 @@
 <template>
     <div class="row-container" id="liveRecommend">
-        <router-link to="/index" class="header">
+        <router-link to="/live" class="header">
             <div class="left">
                 <span></span>
                 <span>正在直播</span>
@@ -21,7 +21,6 @@
                     <div class="avator">
                         <img :src="item.face" :alt="item.cover">
                     </div>
-         
                     <div class="user">
                         <div class="name text-overflow">{{item.uname}}</div>
                         <div class="desp text-overflow">{{item.title}}</div>
