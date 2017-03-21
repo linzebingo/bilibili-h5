@@ -4,7 +4,6 @@
   "description": "A Vue.js+TypeScript project",
   "main": "index.js",
   "scripts": {
-    "preinstall": "typings install",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
     "build": "webpack --config build/webpack.prod.config.js"
   },
@@ -15,6 +14,7 @@
   "author": "linzebin <443189390@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.15.3",
     "fastclick": "^1.0.6",
     "normalize.css": "^5.0.0",
     "swipejs": "^2.2.4",
