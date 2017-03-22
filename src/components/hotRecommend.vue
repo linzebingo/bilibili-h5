@@ -12,13 +12,13 @@
         </router-link>
         <ul class="content-wrapper" v-if="recommendItems && recommendItems.length > 0">
             <li class="content-list" v-for="item in recommendItems">
-                <a :href="item.link" class="item">
+                <router-link :to="'/video/'+item.aid" class="item">
                     <div class="top" :data-img="item.pic">
                         <div class="cover-img" 
                             :style="item.pic | imageURL"></div>
                     </div>
-                </a>
-                <a :href="item.link" class="info">
+                </router-link>
+                <router-link to="/history/123456" class="info">
                     <div class="title">{{item.title}}</div>
                     <div class="meta clearfix">
                         <div class="cell left">
@@ -30,7 +30,7 @@
                             <span>{{ item.video_review }}</span>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </li>
         </ul>
     </div>

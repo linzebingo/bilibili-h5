@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="bofqi">
-            <div class="player-container">
+            <div class="player-container" v-if="videoURL">
                 <div class="dummy"></div>
                 <div class="player-box">
                     <video width="100%" height="100%"
@@ -10,7 +10,7 @@
                         controls
                         preload="auto"
                         data-setup='{}'>
-                        <source :src="video_url" type="video/mp4"></source>
+                        <source :src="videoURL" type="video/mp4"></source>
                     </video>
                     <div class="display" v-if="false">
                         <div class="input-bar">
@@ -62,9 +62,7 @@
                 </ul>
             </div>
             <div class="video-info-span"></div>
-        </div>
-
-        
+        </div>    
     </div>
 </template>
 
