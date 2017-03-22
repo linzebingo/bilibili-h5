@@ -8,11 +8,38 @@ const NotFound = { template: '<div>404 not found.</div>' }
 
 export default [
     { path: '/', redirect: '/index' }, // 将根路径重定向到/index路径
-    { path: '/index', component: Index },
-    { path: '/channel', component: Channel },
-    { path: '/live', component: Live },
-    { path: '/ranking', component: Ranking },
-    { path: '/space', component: Space },
-    { path: '/video/:id', component: Video },
-    { path: '*', component: NotFound } //放在最后一个
+    {
+        path: '/index',
+        component: Index,
+        meta: { title: '首页' }
+    },
+    {
+        path: '/channel',
+        component: Channel,
+        meta: { title: '频道' }
+    },
+    {
+        path: '/live',
+        component: Live,
+        meta: { title: '直播' }
+    },
+    {
+        path: '/ranking',
+        component: Ranking,
+        meta: { title: '排行榜' }
+    },
+    {
+        path: '/space',
+        component: Space,
+        meta: { title: '我的' }
+    },
+    {
+        path: '/video/:id',
+        component: Video
+    },
+    {
+        path: '*',
+        component: NotFound,
+        meta: { title: '出错啦!' }
+    } //放在最后一个
 ]
