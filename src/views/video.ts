@@ -5,7 +5,7 @@ import Tools from '../common/Tools'
 
 @Component
 export default class Video extends Vue {
-    playURL: PlayURL = null
+    videoURL = null
 
     mounted() {
         const aid = this.$route.params['id']
@@ -22,7 +22,7 @@ export default class Video extends Vue {
             // Tools.Log(response)
             console.dir(response)
             if (!response.data['code']) {
-                this.playURL = response.data as PlayURL
+                this.videoURL = (response.data as PlayURL).durl[0].url
             } else {
                 const badResponse = response.data as BaseResponse;
                 console.error(`[${badResponse.code}] ${badResponse.message}`)
@@ -39,12 +39,6 @@ export default class Video extends Vue {
         }, response => {
             // console.error(response)
         })
-    }
-
-    get videoURL() {
-        if(this.playURL){
-            return this.playURL.durl[0].url
-        }
     }
 }
 
