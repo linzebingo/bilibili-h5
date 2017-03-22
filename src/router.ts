@@ -1,6 +1,8 @@
 import Index from './views/index.vue'
 import Video from './views/video.vue'
 import Space from './views/space.vue'
+import History from './views/history.vue'
+
 const Channel = { template: '<div>channel</div>' }
 const Live = { template: '<div>live</div>' }
 const Ranking = { template: '<div>ranking</div>' }
@@ -14,5 +16,6 @@ export default [
     { path: '/ranking', component: Ranking },
     { path: '/space', component: Space },
     { path: '/video/:id', component: Video },
+    { path: '/history', component: History },
     { path: '*', component: NotFound } //放在最后一个
 ]

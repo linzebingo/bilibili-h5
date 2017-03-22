@@ -8,9 +8,9 @@
             </div>
             <nav class="nav-bar">
                 <div class="nav-wrp">
-                    <a href="//m.bilibili.com/index.html" class="logo"></a>
-                    <a href="history" class="cell"><i class="nav-icon icon-history"></i></a>
-                    <a href="javascript: void(0);" class="cell"><i class="nav-icon icon-search"></i></a>
+                    <router-link to="/index" class="logo"></router-link>
+                    <router-link to="/history" class="cell"><i class="nav-icon icon-history"></i></router-link>
+                    <router-link to="/index" class="cell" ><i class="nav-icon icon-search"></i></router-link>
                 </div>
             </nav>
         </div>
