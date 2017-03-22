@@ -12,7 +12,7 @@
         </router-link>
         <ul class="content-wrapper" v-if="recommendItems && recommendItems.length > 0">
             <li class="content-list" v-for="item in recommendItems">
-                <router-link to="/video/9277633" class="item">
+                <router-link :to="'/video/'+item.aid" class="item">
                     <div class="top" :data-img="item.pic">
                         <div class="cover-img" 
                             :style="item.pic | imageURL"></div>
