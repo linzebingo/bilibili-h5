@@ -19,7 +19,7 @@ Vue.use(VueResource)
 Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
-    base: __dirname,
+    base: 'bilibili-h5',
     routes,
     linkActiveClass: 'on',
     scrollBehavior(to, from, savedPosition) {
