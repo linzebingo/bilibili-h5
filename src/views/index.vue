@@ -4,6 +4,7 @@
         <HotRecommend id="hotRecommand"></HotRecommend>
         <LiveRecommend id="liveRecommand"></LiveRecommend>
         <BangumiRecommend id="bangumiRecommend"></BangumiRecommend>
+        <ChannelRecommend id="channelRecommend"></ChannelRecommend>
     </div>
 </template>
 

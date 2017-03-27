@@ -8,5 +8,9 @@ export default {
     getBangumiList() {
         const url = 'http://www.bilibili.com/api_proxy?app=bangumi&action=timeline_v2';
         return Vue.http.get(url)
+    },
+    getChannelList(){
+        const url = 'http://m.bilibili.com/index/ding.html'
+        return Vue.http.get(url)
     }
 }
