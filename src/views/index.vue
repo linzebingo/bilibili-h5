@@ -3,6 +3,7 @@
         <Slider id="sliderWrapper"></Slider>
         <HotRecommend id="hotRecommand"></HotRecommend>
         <LiveRecommend id="liveRecommand"></LiveRecommend>
+        <BangumiRecommend id="bangumiRecommend"></BangumiRecommend>
     </div>
 </template>
 
@@ -164,7 +165,7 @@
         }
     }
     
-    .clearfix:after {
+    .clearfix::after {
         content: "";
         display: block;
         height: 0;

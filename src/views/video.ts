@@ -1,6 +1,5 @@
 import * as Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
-import * as videojs from 'video.js'
 import Tools from '../common/Tools'
 
 @Component
@@ -16,6 +15,11 @@ export default class Video extends Vue {
         })
     }
 
+    @Watch('$route')
+    onRouteChange(){
+        console.log('route change')
+    }
+
     fetchPlayURL(aid: string) {
         const url = `http://api.bilibili.com/playurl?callback=jQuery17204299305679106269_1490163840108&aid=${aid}&page=1&platform=html5&quality=1&vtype=mp4&type=jsonp&token=&_=1490163840195`
         this.$http.jsonp(url).then(response => {
@@ -25,7 +29,7 @@ export default class Video extends Vue {
                 this.videoURL = (response.data as PlayURL).durl[0].url
             } else {
                 const badResponse = response.data as BaseResponse;
-                console.error(`[${badResponse.code}] ${badResponse.message}`)
+                Tools.Error(`${badResponse.code} - ${badResponse.message}`)
             }
         }, response => {
             console.error(response)

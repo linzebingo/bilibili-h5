@@ -128,11 +128,4 @@ footer {
     color: #666;
     vertical-align: middle;
 }
-.clearfix {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
 </style>

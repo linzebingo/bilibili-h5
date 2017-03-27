@@ -10,6 +10,10 @@ const NotFound = { template: '<div>404 not found.</div>' }
 
 export default [
     {
+        path: '/',
+        redirect: '/index'
+    },
+    {
         path: '/index',
         component: Index,
         meta: { title: '首页' }

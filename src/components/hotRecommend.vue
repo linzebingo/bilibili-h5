@@ -18,7 +18,7 @@
                             :style="item.pic | imageURL"></div>
                     </div>
                 </router-link>
-                <router-link to="/history/123456" class="info">
+                <router-link :to="'/video/'+item.aid" class="info">
                     <div class="title">{{item.title}}</div>
                     <div class="meta clearfix">
                         <div class="cell left">

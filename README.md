@@ -2,7 +2,7 @@
 
 > 基于Webpack,vue,vuex,vue-router的仿bilibili的h5页面
 
-[DEMO预览](https://linzebin.github.io/bilibili-h5/dist/)
+[DEMO预览](https://linzebin.github.io/bilibili-h5)
 
 ## Usage
 

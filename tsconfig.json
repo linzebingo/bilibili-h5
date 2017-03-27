@@ -12,7 +12,8 @@
         "inlineSourceMap": true,
         "inlineSources": true,
         "pretty": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "allowJs": true
         
     }
 }
