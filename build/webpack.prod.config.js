@@ -62,10 +62,11 @@ module.exports = merge(baseWebpackConfig, {
             }
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new ExtractTextPlugin({filename:"css/[name].[contenthash].css",  disable: false, allChunks: true }),
+        new ExtractTextPlugin({ filename: "css/[name].[contenthash].css", disable: false, allChunks: true }),
         new HtmlWebpackPlugin({
             filename: config.build.index,
             template: 'index.html',
+            favicon: 'favicon.ico',
             inject: true,
             minify: {
                 removeComments: true,
