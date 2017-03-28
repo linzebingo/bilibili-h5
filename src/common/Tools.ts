@@ -82,37 +82,6 @@ export default class Tools {
         return new Date().getTime();
     }
 
-
-    // lazyImage
-    public static lazyload(els: HTMLCollectionOf<HTMLImageElement>) {
-        for (let i = 0; i < els.length; i++) {
-            let el = els[i] as HTMLImageElement
-            // 元素上边相对于视窗的的位置 小于 视窗的高度，即可判定元素已处在视窗内
-            if (el.getBoundingClientRect().top < document.documentElement.clientTop && !el.isLoad) {
-                el.isLoad = true
-                el.style.cssText = `opacity: 0;`
-                if (el.dataset) {
-                    this._afterLoadImg(el, el.dataset['src'])
-                } else {
-                    this._afterLoadImg(el, el.getAttribute('data-src'))
-                }
-
-                setTimeout(() => {
-                    el.style.cssText = `transition: opacity 1s; opacity: 1;`
-                }, 16);
-            }
-        }
-    }
-
-    private static _afterLoadImg(img: HTMLImageElement, url: string) {
-        let oImg = new Image()
-        oImg.src = url
-        oImg.onload = () => {
-            img.src = oImg.src
-            img.removeAttribute('data-src') // clear attribute
-        }
-    }
-
     public static getQueryString() {
         let url = location.search; //获取url中"?"符后的字串   
         let theRequest = new Object();

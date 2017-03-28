@@ -13,9 +13,7 @@
         <ul class="content-wrapper" v-if="liveItems && liveItems.length > 0">
             <li class="content-list" v-for="item in liveItems">
                 <a :href="item.link" class="item">
-                    <div class="top">
-                        <div class="cover-img" :data-img="item.cover" :style="item.cover | imageURL"></div>
-                    </div>
+                    <LazyImage class="top" :src="item.cover"></LazyImage>
                 </a>
                 <a :href="item.link" class="info clearfix">
                     <div class="avator">

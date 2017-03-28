@@ -13,10 +13,7 @@
         <ul class="content-wrapper" v-if="recommendItems && recommendItems.length > 0">
             <li class="content-list" v-for="item in recommendItems">
                 <router-link :to="'/video/'+item.aid" class="item">
-                    <div class="top" :data-img="item.pic">
-                        <div class="cover-img" 
-                            :style="item.pic | imageURL"></div>
-                    </div>
+                    <LazyImage class="top" :src="item.pic"></LazyImage>
                 </router-link>
                 <router-link :to="'/video/'+item.aid" class="info">
                     <div class="title">{{item.title}}</div>

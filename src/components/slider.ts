@@ -1,6 +1,7 @@
 import Swipe = require('swipejs') // https://github.com/lyfeyaj/swipe
 import * as Vue from 'vue'
 import Component from 'vue-class-component'
+import Api from '../api'
 
 interface Banner {
     id: number;
@@ -25,7 +26,7 @@ export default class Slider extends Vue {
 
     active = 0
     activeClass = "on"
-    swiper: Swipe = undefined
+    swiper: Swipe = null
     showError = false
     sliderItems = new Array<Banner>();
 
@@ -38,10 +39,12 @@ export default class Slider extends Vue {
     }
 
     fetchData() {
-        this.$http.jsonp('http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=7&id=1695').then(response => {
+        Api.getBannerList().then(response => {
             // success callback
             this.sliderItems = response.data['data'] || [];
-            this.$nextTick(() => this.initSwipe());
+            this.$nextTick(() => {
+                this.initSwipe()
+            });
         }, response => {
             // error callback
             this.showError = true;

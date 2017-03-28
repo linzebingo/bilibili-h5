@@ -1,19 +1,30 @@
 import * as Vue from 'vue'
 import Component from 'vue-class-component'
+import Tools from '../common/Tools'
+import Api from '../api'
+import LazyImage from './common/LazyImage.vue'
 
-
-@Component
+@Component({
+    components: { LazyImage }
+})
 export default class HotRecommend extends Vue {
     recommendItems: Array<RecommendItem> = null
     showError = false
-    loading = false
-    defaultImg = {
-        backgroundImage: "url(//static.hdslb.com/images/v3images/img_loading.png)",
-        backgroundSize: "contain"
-    }
+    loading = true
 
     mounted() {
         this.fetchData();
+    }
+
+    fetchData() {
+        Api.getRanking3day().then(response => {
+            this.loading = false
+            this.handleData(response.data as RecommendItemsResponse)
+        }, response => {
+            Tools.Error('fetch ranking-3day failed')
+            this.loading = false
+            this.showError = true
+        })
     }
 
     handleData(resp: RecommendItemsResponse) {
@@ -27,23 +38,6 @@ export default class HotRecommend extends Vue {
             }
         }
         this.recommendItems = itemArray
-    }
-
-    fetchData() {
-        this.loading = true
-        this.$http.get("//www.bilibili.com/index/ranking-3day.json", { credentials: false }).then(response => {
-            this.loading = false;
-            this.handleData(response.data as RecommendItemsResponse)
-        }, response => {
-            console.error('fetch ranking-3day failed')
-        })
-
-        this.loading = false
-    }
-
-    delayImg() {
-        //TODO
-        //this.$nextTick(function () { l.lazyImage.lazy($(g)) })
     }
 }
 
