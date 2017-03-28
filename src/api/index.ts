@@ -3,7 +3,7 @@ import * as Vue from 'vue'
 export default {
     /**
      * 获取视频的播放地址
-     * @param aid 
+     * @param aid
      */
     getPlayURL(aid: string) {
         const url = `//api.bilibili.com/playurl?callback=jQuery17204299305679106269_1490163840108&aid=${aid}&page=1&platform=html5&quality=1&vtype=mp4&type=jsonp&token=&_=1490163840195`
@@ -42,6 +42,22 @@ export default {
      */
     getBannerList(){
         const url = '//api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=7&id=1695'
+        return Vue.http.jsonp(url)
+    },
+    /**
+     * 获取视频的回复信息
+     * @param aid 视频id
+     */
+    getReply(aid: string) {
+        const url = `http://api.bilibili.com/x/v2/reply?callback=jQuery172036985232783181954_1490711543034&jsonp=jsonp&type=1&sort=2&oid=${aid}&pn=1&nohot=1&_=1490711543368`
+        return Vue.http.jsonp(url)
+    },
+    /**
+     * 获取视频统计信息
+     * @param aid 视频id
+     */
+    getStat(aid: string) {
+        const url = `http://api.bilibili.com/archive_stat/stat?callback=jQuery172036985232783181954_1490711543035&aid=${aid}&type=jsonp&=1490711543393`
         return Vue.http.jsonp(url)
     }
 }

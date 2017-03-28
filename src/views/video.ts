@@ -1,32 +1,32 @@
 import * as Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
 import Tools from '../common/Tools'
+import Api from '../api'
+import LazyImage from '../components/common/LazyImage.vue'
 
-@Component
+@Component({
+    components: { LazyImage }
+})
 export default class Video extends Vue {
     videoURL = null
+    videoPoster = ''
+    videoStat: Stat = null
 
     mounted() {
         const aid = this.$route.params['id']
         this.fetchPlayURL(aid)
+        this.fetchStat(aid)
         // this.fetchReply()
         this.$router.beforeEach((to, from, next) => {
             next()
         })
     }
 
-    @Watch('$route')
-    onRouteChange(){
-        console.log('route change')
-    }
-
     fetchPlayURL(aid: string) {
-        const url = `http://api.bilibili.com/playurl?callback=jQuery17204299305679106269_1490163840108&aid=${aid}&page=1&platform=html5&quality=1&vtype=mp4&type=jsonp&token=&_=1490163840195`
-        this.$http.jsonp(url).then(response => {
-            // Tools.Log(response)
-            console.dir(response)
+        Api.getPlayURL(aid).then(response => {
             if (!response.data['code']) {
                 this.videoURL = (response.data as PlayURL).durl[0].url
+                this.videoPoster = (response.data as PlayURL).img
             } else {
                 const badResponse = response.data as BaseResponse;
                 Tools.Error(`${badResponse.code} - ${badResponse.message}`)
@@ -36,12 +36,24 @@ export default class Video extends Vue {
         })
     }
 
-    fetchReply() {
-        const url = `https://api.bilibili.com/x/v2/reply?callback=jQuery1720009073774483293828_1490184741397&jsonp=jsonp&type=1&sort=2&oid=9281509&pn=1&nohot=1&_=1490184741521`
-        this.$http.jsonp(url).then(response => {
-            // console.log(response)
+    fetchReply(aid: string) {
+        Api.getReply(aid).then(response => {
+
         }, response => {
-            // console.error(response)
+            Tools.Error(response)
+        })
+    }
+
+    fetchStat(aid: string) {
+        Api.getStat(aid).then(response => {
+            if (response.data['code'] === 0) {
+                this.videoStat = response.data['data']
+            } else {
+                const badResponse = response.data as BaseResponse;
+                Tools.Error(`${badResponse.code} - ${badResponse.message}`)
+            }
+        }, response => {
+            console.error(response)
         })
     }
 }
@@ -138,7 +150,77 @@ interface Reply {
         type: number
     }>;
     upper: {
-        mid: number
+        mid: number,
+        top: {
+            rpid: number,
+            oid: number,
+            type: number,
+            mid: number,
+            root: number,
+            parent: number,
+            count: number,
+            rcount: number,
+            floor: number,
+            state: number,
+            attr: number,
+            ctime: number,
+            rpid_str: string,
+            root_str: string,
+            parent_str: string,
+            like: number,
+            action: number,
+            member: {
+                mid: string,
+                uname: string,
+                sex: string,
+                sign: string,
+                avatar: string,
+                rank: string,
+                DisplayRank: string,
+                level_info: {
+                    current_level: number,
+                    current_min: number,
+                    current_exp: number,
+                    next_exp: number
+                },
+                pendant: {
+                    pid: number,
+                    name: string,
+                    image: string,
+                    expire: number
+                },
+                nameplate: {
+                    nid: number,
+                    name: string,
+                    image: string,
+                    image_small: string,
+                    level: string,
+                    condition: string
+                },
+                official_verify: {
+                    type: number,
+                    desc: string
+                },
+                vip: {
+                    vipType: number,
+                    vipDueDate: number,
+                    dueRemark: string,
+                    accessStatus: number,
+                    vipStatus: number,
+                    vipStatusWarn: string
+                }
+            },
+            content: {
+                message: string,
+                plat: number,
+                device: string,
+                members: Array<any>
+            },
+            replies: [{
+
+            }]
+        }
+
     }
 }
 
