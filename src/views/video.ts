@@ -1,5 +1,5 @@
 import * as Vue from 'vue'
-import { Component, Watch } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 import Tools from '../common/Tools'
 import Api from '../api'
 import LazyImage from '../components/common/LazyImage.vue'

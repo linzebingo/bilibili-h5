@@ -2,6 +2,7 @@ import Index from './views/index.vue'
 import Video from './views/video.vue'
 import Space from './views/space.vue'
 import History from './views/history.vue'
+import Wrapper from './views/navWrapper.vue'
 
 const Channel = { template: '<div>channel</div>' }
 const Live = { template: '<div>live</div>' }
@@ -15,28 +16,34 @@ export default [
     },
     {
         path: '/index',
-        component: Index,
-        meta: { title: '首页' }
-    },
-    {
-        path: '/channel',
-        component: Channel,
-        meta: { title: '频道' }
-    },
-    {
-        path: '/live',
-        component: Live,
-        meta: { title: '直播' }
-    },
-    {
-        path: '/ranking',
-        component: Ranking,
-        meta: { title: '排行榜' }
-    },
-    {
-        path: '/space',
-        component: Space,
-        meta: { title: '我的' }
+        component: Wrapper,
+        children: [
+            {
+                path: '/',
+                component: Index,
+                meta: { title: '首页' }
+            },
+            {
+                path: '/channel',
+                component: Channel,
+                meta: { title: '频道' }
+            },
+            {
+                path: '/live',
+                component: Live,
+                meta: { title: '直播' }
+            },
+            {
+                path: '/ranking',
+                component: Ranking,
+                meta: { title: '排行榜' }
+            },
+            {
+                path: '/space',
+                component: Space,
+                meta: { title: '我的' }
+            }
+        ]
     },
     {
         path: '/video/:id',

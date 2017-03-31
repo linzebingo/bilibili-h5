@@ -18,41 +18,23 @@
         <!-- search panel -->
         <div class="search toggle-panel"></div>
 
-        <div class="wrapper">
-            <!-- tab panels -->
-            <div class="flex-bar main">
-                <ul class="flex-bar-in">
-                    <router-link tag="li" to="/index" class="nav-item">
-                        <a title="首页">首页</a>
-                    </router-link>
-                    <router-link tag="li" to="/live" class="nav-item">
-                        <a title="直播">直播</a>
-                    </router-link>
-                    <router-link tag="li" to="/channel" class="nav-item">
-                        <a title="频道">频道</a>
-                    </router-link>
-                    <router-link tag="li" to="/ranking" class="nav-item">
-                        <a title="排行">排行</a>
-                    </router-link>
-                    <router-link tag="li" to="/space" class="nav-item">
-                        <a title="我的">我的</a>
-                    </router-link>
-                </ul>
-            </div>
-            <!-- end of tab panel -->
-            <!--<transition name="router-slide">-->
-                <router-view class="wrapper-content"></router-view>
-            <!--</transition>-->
+        
+        <!--<transition name="router-slide">-->
+        <router-view class="wrapper"></router-view>
+        <!--</transition>-->
  
-        </div>
+        <Footer></Footer>
     </div>
 </template>
 
 <script lang="ts">
     import * as Vue from 'vue'
-    import Component from 'vue-class-component'
+    import { Component } from 'vue-property-decorator'
+    import Footer from './components/common/Footer.vue'
 
-    @Component
+    @Component({
+        components: { Footer }
+    })
     export default class App extends Vue {
         appload = false //结构页
         
