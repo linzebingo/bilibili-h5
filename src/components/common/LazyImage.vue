@@ -1,5 +1,6 @@
 <template>
     <div>
+        <slot></slot>
         <div class="cover-img" :style="innerStyle"></div>
     </div>
 </template>

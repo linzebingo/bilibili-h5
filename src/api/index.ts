@@ -1,4 +1,5 @@
 import * as Vue from 'vue'
+import Axios from 'axios'
 
 export default {
     /**
@@ -59,5 +60,12 @@ export default {
     getStat(aid: string) {
         const url = `http://api.bilibili.com/archive_stat/stat?callback=jQuery172036985232783181954_1490711543035&aid=${aid}&type=jsonp&=1490711543393`
         return Vue.http.jsonp(url)
+    },
+    /**
+     * 获取全站类的全站视频排行
+     */
+    getAll70(){
+        const url = `http://m.bilibili.com/rank/all-7-0.json`;
+        return Axios.get(url)
     }
 }

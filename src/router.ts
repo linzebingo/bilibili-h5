@@ -3,10 +3,10 @@ import Video from './views/video.vue'
 import Space from './views/space.vue'
 import History from './views/history.vue'
 import Wrapper from './views/navWrapper.vue'
+import Channel from './views/channel.vue'
+import Ranking from './views/ranking.vue'
 
-const Channel = { template: '<div>channel</div>' }
 const Live = { template: '<div>live</div>' }
-const Ranking = { template: '<div>ranking</div>' }
 const NotFound = { template: '<div>404 not found.</div>' }
 
 export default [
