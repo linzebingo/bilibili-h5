@@ -85,7 +85,7 @@ html, body{
         display: flex;
         align-items: center;
         height: 41px;
-        justify-content: space-between;  
+        justify-content: space-between;
         .on {
             border-bottom: 4px solid #de698c;
         }
@@ -111,3 +111,103 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.0), screen and (min--moz-device-pixel-ratio: 1.0), screen and (min-device-pixel-ratio: 1.0), screen and (min-resolution: 1.0dppx) {
+  .bili-icon-tv,
+  .bili-icon-tech,
+  .bili-icon-music,
+  .bili-icon-movie,
+  .bili-icon-live,
+  .bili-icon-kichiku,
+  .bili-icon-game,
+  .bili-icon-fashion,
+  .bili-icon-douga,
+  .bili-icon-dance,
+  .bili-icon-bangumi,
+  .bili-icon-search,
+  .bili-icon-history,
+  .bili-icon-fav,
+  .bili-icon-history-2,
+  .bili-icon-filter-hover,
+  .bili-icn-filter,
+  .bili-icon-upload,
+  .bili-icon-circle-del,
+  .bili-icon-arrow,
+  .bili-icon-del {
+    background-image: url("//static.hdslb.com/mobile/img/ui_3.png");
+    background-size: 274px 228px;
+    display: block;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2.0), screen and (min--moz-device-pixel-ratio: 2.0), screen and (min-device-pixel-ratio: 2.0), screen and (min-resolution: 2.0dppx) {
+  .bili-icon-tv,
+  .bili-icon-tech,
+  .bili-icon-music,
+  .bili-icon-movie,
+  .bili-icon-live,
+  .bili-icon-kichiku,
+  .bili-icon-game,
+  .bili-icon-fashion,
+  .bili-icon-douga,
+  .bili-icon-dance,
+  .bili-icon-bangumi,
+  .bili-icon-search,
+  .bili-icon-history,
+  .bili-icon-fav,
+  .bili-icon-history-2,
+  .bili-icon-filter-hover,
+  .bili-icon-filter,
+  .bili-icon-upload,
+  .bili-icon-circle-del,
+  .bili-icon-arrow,
+  .bili-icon-del {
+    background-image: url("//static.hdslb.com/mobile/img/ui_3@2x.png");
+    background-size: 274px 228px;
+    display: block;
+  }
+}
+
+.bili-icon-tv,
+.bili-icon-tech,
+.bili-icon-music,
+.bili-icon-movie,
+.bili-icon-live,
+.bili-icon-kichiku,
+.bili-icon-game,
+.bili-icon-fashion,
+.bili-icon-douga,
+.bili-icon-dance,
+.bili-icon-bangumi,
+.bili-icon-search,
+.bili-icon-history,
+.bili-icon-fav,
+.bili-icon-history-2,
+.bili-icon-filter-hover,
+.bili-icon-filter,
+.bili-icon-upload,
+.bili-icon-circle-del,
+.bili-icon-arrow,
+.bili-icon-del {
+  background-image: url("//static.hdslb.com/mobile/img/ui_3.png");
+  background-repeat: no-repeat;
+  display: block;
+}
+.bili-icon {
+    width: 68px;
+    height: 68px;
+    &-live {
+        background-position: -137px 0;
+        @extend .bili-icon;
+    }
+     &-bangumi {
+        background-position: -206px -137px;
+        @extend .bili-icon;
+    }
+    &-douga {
+        background-position: -206px 0px;
+        @extend .bili-icon;
+    }
+}
+
+
