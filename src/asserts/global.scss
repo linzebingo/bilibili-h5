@@ -1,9 +1,13 @@
 html, body{
     background-color: #f4f4f4;
     font: 1rem/1.5 'Microsoft YaHei', 'Droid Sans Fallback', SimHei, Arial, Helvetica, tahoma, sans-serif;
+    min-height: 100%;
 }
 
 .app{
+    background-color: #f8f8f8;
+    min-height: 100%;
+    overflow: hidden;
     .load-cover{
         display: block;
         position: fixed;
@@ -63,6 +67,138 @@ html, body{
         height: 28px;
         background: url(./logo.png);
         background-size: 63px 28px;
+    }
+    .cell {
+        float: right;
+        width: 44px;
+        height: 36px;
+        position: relative;
+        box-sizing: border-box;
+        margin-right: 5px;
+    }
+}
+
+.toggle-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10011;
+    transition: 0.3s;
+    transform-origin: right top;
+    .toggle-panel-bg {
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.9;
+        width: 100%;
+        height: 100%;
+    }
+    .toggle-panel-inner {
+        .search-bar {
+            position: relative;
+            height: 40px;
+            padding: 0 70px 0 12px;
+            background-color: #f4f4f4;
+            input {
+                height: 30px;
+                line-height: 30px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                position: relative;
+                width: 100%;
+                top: 5px;
+                font-size: 14px;
+                color: #999;
+                padding: 0 0 0 36px;
+            }
+            .search-cancel {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 70px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 14px;
+                color: #999;
+            }
+        }
+        .search-wrapper {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0 12px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            z-index: 11111;
+            background-color: #fff;
+            opacity: 0.9;
+            .title {
+                display: flex;
+                height: 24px;
+                margin-bottom: 24px;
+                .line {
+                    flex: 1;
+                    display: block;
+                    border-bottom: 1px solid #ccc;
+                }
+                .name {
+                    position: relative;
+                    width: 100px;
+                    line-height: 24px;
+                    text-align: center;
+                    color: #999;
+                    font-size: 13px;
+                    top: 10px;
+                }
+            }
+            .hot-content {
+                min-height: 73px;
+                overflow: hidden;
+                .hot-item {
+                    float: left;
+                    color: #444;
+                    font-size: 14px;
+                    display: block;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    height: 26px;
+                    line-height: 26px;
+                    padding: 0 10px;
+                    margin: 0 12px 12px 0;
+                }
+            }
+        }
+        .history-wrapper {
+            .title{
+                margin: 0;
+            }
+            .history-item {
+                position: relative;
+                display: flex;
+                width: 100%;
+                color: #444;
+                font-size: 14px;
+                border-bottom: 1px solid #ccc;
+                height: 40px;
+                line-height: 40px;
+                box-sizing: border-box;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+            }
+        }
     }
 }
 
