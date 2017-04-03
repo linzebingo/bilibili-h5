@@ -17,10 +17,12 @@ export default class LazyImage extends Vue {
         opacity: 0
     }
 
+    onScrollHandler = () => {
+        this.show()
+    }
+
     mounted() {
-        window.addEventListener('scroll', () => {
-            this.show()
-        })
+        window.addEventListener('scroll', this.onScrollHandler)
         window.addEventListener('orientationchange', () => {
             this.show()
         })
@@ -32,7 +34,7 @@ export default class LazyImage extends Vue {
             return
         }
         this.innerStyle.backgroundImage = `url('${this.config.defaultImg}')`
-        if (this.$el.getBoundingClientRect().top - this.config.distance< document.documentElement.clientHeight) {
+        if (this.$el.getBoundingClientRect().top - this.config.distance < document.documentElement.clientHeight) {
             window[`lzb${count++}`] = this.$el;
             var oImg = new Image();
             oImg.src = this.src;
@@ -41,6 +43,7 @@ export default class LazyImage extends Vue {
                 this.innerStyle.opacity = 1;
             }
             this.loaded = true
+            window.removeEventListener('scroll', this.onScrollHandler)
             oImg.onerror = (ev) => {
                 console.error(ev)
             }
