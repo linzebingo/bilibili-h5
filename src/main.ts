@@ -1,22 +1,25 @@
+import './polyfills'
 import 'normalize.css'
 import './mixin'
 import * as config from '../config'
 
 import * as Vue from 'vue'
 import VueRouter from 'vue-router'
-// import * as Vuex from 'vuex'
-import  VueResource from 'vue-resource'
+
+import VueResource from 'vue-resource'
 import * as FastClick from 'fastclick'
 
-import App from './app.vue'
+import App from './App.vue'
 import filters from './filters'
 import routes from './router'
+import store from './store'
 import Tools from './common/Tools'
 import LazyLoad from './directive/lazyLoad'
 
 // Use plugin
 Vue.use(VueResource)
 Vue.use(LazyLoad)
+
 
 // Create the router
 Tools.Log('process.env = ' + process.env.NODE_ENV)
@@ -32,7 +35,7 @@ const router = new VueRouter({
 })
 router.beforeEach((to, from, next) => {
     Tools.Log(`route ${from.fullPath}-->${to.fullPath}`)
-    document.title = to.meta.title
+    document.title = to.name
     next()
 })
 
@@ -42,6 +45,7 @@ Object.keys(filters).forEach(key => {
 
 new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount('#app')
 

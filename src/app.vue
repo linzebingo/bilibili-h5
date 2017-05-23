@@ -2,24 +2,26 @@
     <div id="app">
 
         <!-- loading-cover and nav-bar -->
-        <div class="app"
-             :class="{appload:appload}">
-            <div class="load-cover"
-                 v-show="!appload">
+        <div class="app" :class="{appload:appload}">
+            <div class="load-cover" v-show="!appload">
                 <div class="loading-text">(´・ω・｀)正在加载...</div>
             </div>
             <nav class="nav-bar">
                 <div class="nav-wrp">
                     <router-link to="/index" class="logo"></router-link>
-                    <router-link to="/history" class="cell"><i class="nav-icon icon-history"></i>历史</router-link>
-                    <a href="javascript:void(0);" class="cell" @click="show_search=true"><i class="nav-icon icon-search"></i>搜索</a>
+                    <router-link to="/history" class="cell">
+                        <i class="nav-icon icon-history"></i>历史</router-link>
+                    <a href="javascript:void(0);" class="cell" @click="show_search=true">
+                        <i class="nav-icon icon-search"></i>搜索</a>
                 </div>
             </nav>
         </div>
 
         <!-- search panel -->
-        <div class="search toggle-panel" v-show="show_search" >
-            <div class="toggle-panel-bg"></button></div>
+        <div class="search toggle-panel" v-show="show_search">
+            <div class="toggle-panel-bg">
+                </button>
+            </div>
             <div class="toggle-panel-inner">
                 <div class="search-bar">
                     <form action="">
@@ -66,20 +68,20 @@
 </template>
 
 <script lang="ts">
-    import * as Vue from 'vue'
-    import { Component } from 'vue-property-decorator'
-    import Footer from './components/common/Footer.vue'
+import * as Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+import Footer from './components/common/Footer.vue'
 
-    @Component({
-        components: { 'i-footer': Footer }
-    })
-    export default class App extends Vue {
-        appload = false //结构页
-        show_search = false
-        mounted(){
-            this.appload = true
-        }
+@Component({
+    components: { 'i-footer': Footer }
+})
+export default class App extends Vue {
+    appload = false //结构页
+    show_search = false
+    mounted() {
+        this.appload = true
     }
+}
 </script>
 
 <style lang="scss" src="./asserts/global.scss"></style>

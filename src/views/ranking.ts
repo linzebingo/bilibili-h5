@@ -3,7 +3,7 @@ import { Component } from 'vue-property-decorator'
 import Api from '../api'
 
 @Component({
-    components: {  }
+    components: {}
 })
 export default class Ranking extends Vue {
     rankItems = new Array<RankItem>()
@@ -16,7 +16,7 @@ export default class Ranking extends Vue {
         Api.getAll70().then(response => {
             if (response.data.rank && response.data.rank.code === 0) {
                 this.rankItems = response.data.rank.list.splice(0, 30)
-            }else{
+            } else {
                 console.error(response.data)
             }
         })

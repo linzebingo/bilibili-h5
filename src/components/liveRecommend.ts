@@ -3,7 +3,7 @@ import Component from 'vue-class-component'
 import Api from '../api'
 
 @Component({
-    components: {  }
+    components: {}
 })
 export default class LiveRecommend extends Vue {
     loading = true

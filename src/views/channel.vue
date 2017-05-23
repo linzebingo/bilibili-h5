@@ -2,13 +2,13 @@
     <div class="channel-wrapper clearfic">
         <ul>
             <li>
-                <a  class="channel-item" href="">
+                <a class="channel-item" href="">
                     <div class="channel-icon bili-icon-live"></div>
                     <p class="channel-name">直播</p>
                 </a>
             </li>
             <li>
-                <a  class="channel-item" href="">
+                <a class="channel-item" href="">
                     <div class="channel-icon bili-icon-bangumi">
                         <span class="channel-num">66</span>
                     </div>
@@ -16,15 +16,15 @@
                 </a>
             </li>
             <!--<li>
-                <a  class="channel-item" href="">
-                    <div class="channel-icon">
-                        <span class="channel-num">28</span>
-                    </div>
-                    <p class="channel-name">国创</p>
-                </a>
-            </li>-->
+                        <a  class="channel-item" href="">
+                            <div class="channel-icon">
+                                <span class="channel-num">28</span>
+                            </div>
+                            <p class="channel-name">国创</p>
+                        </a>
+                    </li>-->
             <li>
-                <a  class="channel-item" href="">
+                <a class="channel-item" href="">
                     <div class="channel-icon bili-icon-douga">
                         <span class="channel-num">99+</span>
                     </div>

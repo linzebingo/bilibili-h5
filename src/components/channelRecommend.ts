@@ -3,7 +3,7 @@ import { Component } from 'vue-property-decorator'
 import Api from '../api'
 
 @Component({
-    components: {  }
+    components: {}
 })
 export default class BangumiRecommend extends Vue {
     loading = true

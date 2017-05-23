@@ -1,3 +1,5 @@
+const LOG_PREFIX = 'REM'
+
 export default class Tools {
     // log
     private static _NoneLogLovel = 0;
@@ -30,7 +32,7 @@ export default class Tools {
     }
     private static _LogEnable(message: string): void {
         let formattedMessage = Tools._FormatMessage(message);
-        console.log('HTK - ' + formattedMessage);
+        console.log(LOG_PREFIX +  ' - ' + formattedMessage);
     }
 
     private static _WarnDisabled(message: string): void {
@@ -38,7 +40,7 @@ export default class Tools {
     }
     private static _WarnEnable(message: string): void {
         let formattedMessage = Tools._FormatMessage(message)
-        console.warn('HTK - ' + formattedMessage);
+        console.warn(LOG_PREFIX + ' - ' + formattedMessage);
     }
 
     private static _ErrorDisabled(message: string): void {
@@ -46,7 +48,7 @@ export default class Tools {
     }
     private static _ErrorEnable(message: string): void {
         let formattedMessage = Tools._FormatMessage(message);
-        console.error('HTK - ' + formattedMessage);
+        console.error(LOG_PREFIX + ' - ' + formattedMessage);
     }
 
     public static Log: (message: string) => void = Tools._LogEnable;
@@ -83,7 +85,7 @@ export default class Tools {
     }
 
     public static getQueryString() {
-        let url = location.search; //获取url中"?"符后的字串   
+        let url = location.search; //获取url中"?"符后的字串
         let theRequest = new Object();
         if (url.indexOf("?") !== -1) {
             var str = url.substr(1);

@@ -1,4 +1,5 @@
 import Swipe = require('swipejs') // https://github.com/lyfeyaj/swipe
+// import * as Swipe from 'swipejs'
 import * as Vue from 'vue'
 import Component from 'vue-class-component'
 import Api from '../api'

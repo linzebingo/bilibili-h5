@@ -346,4 +346,61 @@ a {
     }
 }
 
+input,button,select,textarea {
+    outline: 0
+}
 
+textarea {
+    resize: none
+}
+
+h1,h2,h3,h4,h5,h6,ul,li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+a {
+    outline: 0;
+    color: #00a1d6;
+    text-decoration: none;
+    cursor: pointer
+}
+
+a:hover {
+    color: #f25d8e
+}
+
+a:focus {
+    -moz-outline-style: none
+}
+
+a img {
+    border: 0
+}
+
+address,caption,cite,code,dfn,em,i,th,var {
+    font-style: normal;
+    font-weight: normal
+}
+
+p,span {
+    margin: 0;
+    padding: 0
+}
+*.clearfix {
+    zoom: 1;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    font-size: 0;
+}

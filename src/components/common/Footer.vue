@@ -1,18 +1,20 @@
 <template>
     <footer>
         <p class="clearfix">
-            <router-link to=""
-                         id="change_to_computer"
-                         class="bottom-btn"><span>电脑版</span></router-link>
-            <router-link to=""
-                         id="link_to_app"
-                         class="bottom-btn"><span>客户端</span></router-link>
-            <router-link to=""
-                         id="back_to_top"
-                         class="bottom-btn"><span>返回顶部</span></router-link>
+            <router-link to="" id="change_to_computer" class="bottom-btn">
+                <span>电脑版</span>
+            </router-link>
+            <router-link to="" id="link_to_app" class="bottom-btn">
+                <span>客户端</span>
+            </router-link>
+            <router-link to="" id="back_to_top" class="bottom-btn">
+                <span>返回顶部</span>
+            </router-link>
         </p>
         <p>哔哩哔哩 沪ICP备13002172号-3</p>
-        <p>信息网络传播视听节目许可证：<span>0910417</span></p>
+        <p>信息网络传播视听节目许可证：
+            <span>0910417</span>
+        </p>
     </footer>
 </template>
 
@@ -25,6 +27,9 @@ footer {
     text-align: center;
     a {
         vertical-align: middle;
+    }
+    p:not(.clearfix) {
+        margin: 1em;
     }
 }
 

@@ -4,7 +4,7 @@ import Tools from '../common/Tools'
 import Api from '../api'
 
 @Component({
-    components: {  }
+    components: {}
 })
 export default class HotRecommend extends Vue {
     recommendItems: Array<RecommendItem> = null
