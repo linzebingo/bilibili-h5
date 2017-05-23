@@ -8,17 +8,19 @@ module.exports = {
         assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'static',
         assetsPublicPath: '/bilibili-h5/',
-        productionSourceMap: false,
+        productionSourceMap: true,
         // Gzip off by default as many popular static hosts such as
         // Surge or Netlify already gzip all static assets for you.
         // Before setting to `true`, make sure to:
         // npm install --save-dev compression-webpack-plugin
         productionGzip: false,
-        productionGzipExtensions: ['js', 'css']
+        productionGzipExtensions: ['js', 'css'],
+        bundleAnalyzerReport: process.env.npm_config_report,
+        productionPrerender: false
     },
     dev: {
         env: require('./dev.env'),
-        port: 8080,
+        port: 8083,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {},
@@ -27,6 +29,7 @@ module.exports = {
         // (https://github.com/webpack/css-loader#sourcemaps)
         // In our experience, they generally work as expected,
         // just be aware of this issue when enabling this option.
-        cssSourceMap: false
+        cssSourceMap: false,
+        autoOpenBrowser: true
     }
 }

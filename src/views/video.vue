@@ -1,27 +1,15 @@
 <template>
     <div>
-        <div id="bofqi"
-             v-if="videoURL">
+        <div id="bofqi" v-if="videoURL">
             <div class="player-container">
                 <div class="dummy"></div>
                 <div class="player-box">
-                    <video width="100%"
-                           height="100%"
-                           id="video-player"
-                           class="video-js"
-                           controls
-                           preload="auto"
-                           :poster="videoPoster"
-                           data-setup='{}'>
-                        <source :src="videoURL"
-                                type="video/mp4"></source>
+                    <video width="100%" height="100%" id="video-player" class="video-js" controls preload="auto" :poster="videoPoster" data-setup='{}'>
+                        <source :src="videoURL" type="video/mp4"></source>
                     </video>
-                    <div class="display"
-                         v-if="false">
+                    <div class="display" v-if="false">
                         <div class="input-bar">
-                            <input type="text"
-                                   class="text-input"
-                                   placeholder="请在这里输入弹幕">
+                            <input type="text" class="text-input" placeholder="请在这里输入弹幕">
                             <button class="send-btn">发送</button>
                         </div>
                         <div class="control-bar hide"></div>
@@ -35,52 +23,50 @@
 
         <div id="video-opt">
             <span class="control-btn btn-share">
-                            <i class="icons"></i>
-                            <span>分享</span>
+                <i class="icons"></i>
+                <span>分享</span>
             </span>
             <span class="control-btn btn-addFav">
-                            <i class="icons"></i>
-                            <span>收藏</span>
+                <i class="icons"></i>
+                <span>收藏</span>
             </span>
             <span class="control-btn btn-download">
-                            <i class="icons"></i>
-                            <span>下载</span>
+                <i class="icons"></i>
+                <span>下载</span>
             </span>
-            <a class="launch-app"
-               href="javascript:void(0)"
-               target="_self">用客户端打开</a>
+            <a class="launch-app" href="javascript:void(0)" target="_self">用客户端打开</a>
         </div>
 
         <div class="video-info clearfix">
             <div class="up clearfix">
                 <div class="up-pic">
-                    <a href="/space/1328260"
-                       target="_blank">
-                        <img src="http://i0.hdslb.com/bfs/face/b967c17c3f96ba8604a8bc1afef3b6ee1842fc5f.jpg"
-                             alt="哔哩哔哩游戏中心"
-                             data-pin-nopin="true">
+                    <a href="/space/1328260" target="_blank">
+                        <img src="http://i0.hdslb.com/bfs/face/b967c17c3f96ba8604a8bc1afef3b6ee1842fc5f.jpg" alt="哔哩哔哩游戏中心" data-pin-nopin="true">
                     </a>
                 </div>
                 <div class="up-right clearfix">
-                    <a href=""
-                       class="up-follow">关注</a>
-                    <a href=""
-                       class="up-name">UP主：哔哩哔哩游戏中心</a>
-                    <a href=""
-                       class="up-detail">围观UP主的全部投稿</a>
+                    <a href="" class="up-follow">关注</a>
+                    <a href="" class="up-name">UP主：哔哩哔哩游戏中心</a>
+                    <a href="" class="up-detail">围观UP主的全部投稿</a>
                 </div>
             </div>
             <div class="video-info-detail">
-                <h1 class="video-title"
-                    title="【灵能百分百手书】 Save ME">【灵能百分百手书】 Save ME</h1>
+                <h1 class="video-title" title="【灵能百分百手书】 Save ME">【灵能百分百手书】 Save ME</h1>
                 <div class="video-desc"></div>
                 <div class="tminfo"></div>
-                <ul class="ct clearfix"
-                    v-if="videoStat">
-                    <li>播放：<span id="dianji">{{videoStat.view | count}}</span></li>
-                    <li>弹幕：<span id="dm_count">{{videoStat.danmaku | count}}</span></li>
-                    <li>收藏：<span id="stow_count">{{videoStat.favorite | count}}</span></li>
-                    <li><span class="up-time">2017-03-09 19:49:32</span></li>
+                <ul class="ct clearfix" v-if="videoStat">
+                    <li>播放：
+                        <span id="dianji">{{videoStat.view | count}}</span>
+                    </li>
+                    <li>弹幕：
+                        <span id="dm_count">{{videoStat.danmaku | count}}</span>
+                    </li>
+                    <li>收藏：
+                        <span id="stow_count">{{videoStat.favorite | count}}</span>
+                    </li>
+                    <li>
+                        <span class="up-time">2017-03-09 19:49:32</span>
+                    </li>
                 </ul>
             </div>
             <div class="video-info-span"></div>
@@ -88,29 +74,25 @@
 
         <div class="recommend-comment channel video-list">
             <ul class="rc-navigator clearfix">
-                <li class="rc-navigator-li on"
-                    role="recommend">
+                <li class="rc-navigator-li on" role="recommend">
                     <span>相关推荐</span>
                     <div class="line"></div>
                 </li>
-                <li class="rc-navigator-li"
-                    role="comment">
-                    <span>评论<em class="comment-num">60</em></span>
+                <li class="rc-navigator-li" role="comment">
+                    <span>评论
+                        <em class="comment-num">60</em>
+                    </span>
                     <div class="line"></div>
                 </li>
             </ul>
-            <div class="target-role on"
-                 target-role="recommend"
-                 style="display: none;">
-                <ul class="rc-pannel channel-in"
-                    v-for="n in 6">
+            <div class="target-role on" target-role="recommend" style="display: none;">
+                <ul class="rc-pannel channel-in" v-for="n in 6">
                     <li>
                         <div class="item">
-                            <LazyImage class="cover"
-                                       src="//i2.hdslb.com/bfs/archive/b4bdbbaf0d06b067c68e63b61bad41e117fa9938.jpg"></LazyImage>
+                            <img class="cover" v-lazyload data-src="//i2.hdslb.com/bfs/archive/b4bdbbaf0d06b067c68e63b61bad41e117fa9938.jpg">
                             <span class="video-title">
-                                            <a href="//www.bilibili.com/mobile/video/av9328225.html" title="【洛天依 假酒绫】笔墨登场（这个阿绫有毒）">【洛天依 假酒绫】笔墨登场（这个阿绫有毒）</a>
-                                        </span>
+                                <a href="//www.bilibili.com/mobile/video/av9328225.html" title="【洛天依 假酒绫】笔墨登场（这个阿绫有毒）">【洛天依 假酒绫】笔墨登场（这个阿绫有毒）</a>
+                            </span>
                             <div class="video-meta">
                                 <div class="video-cell">
                                     <span class="icons"></span>
@@ -125,10 +107,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="target-role"
-                 target-role="comment">
-                <ul class="rc-pannel comment-in"
-                    v-for="n in 4">
+            <div class="target-role" target-role="comment">
+                <ul class="rc-pannel comment-in" v-for="n in 4">
                     <li class="list">
                         <div class="rc-container clearfix">
                             <a href="//space.bilibili.com/11112759" class="rc-pic">
@@ -150,8 +130,7 @@
             </div>
         </div>
 
-        <div class="loading"
-             v-if="!videoURL">
+        <div class="loading" v-if="!videoURL">
             <span class="left"></span>
             <span class="middle"></span>
             <span class="right"></span>
@@ -403,6 +382,7 @@
         border-bottom: 1px solid #eee;
     }
 }
+
 .rc-pic {
     border: 1px solid #eee;
     position: relative;
@@ -424,6 +404,7 @@
         padding-top: 100%;
     }
 }
+
 .rc-container .rc-main {
     width: 80%;
     float: right;

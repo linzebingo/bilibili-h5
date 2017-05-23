@@ -23,30 +23,45 @@
         </ul>
         <div class="roll-bar ranking">
             <ul class="roll-bar-in">
-                <li tid="0" class="on"><a>全站</a></li>
-                <li tid="1"><a>动画</a></li>
-                <li tid="167"><a>国创</a></li>
-                <li tid="3"><a>音乐</a></li>
-                <li tid="129"><a>舞蹈</a></li>
-                <li tid="4"><a>游戏</a></li>
+                <li tid="0" class="on">
+                    <a>全站</a>
+                </li>
+                <li tid="1">
+                    <a>动画</a>
+                </li>
+                <li tid="167">
+                    <a>国创</a>
+                </li>
+                <li tid="3">
+                    <a>音乐</a>
+                </li>
+                <li tid="129">
+                    <a>舞蹈</a>
+                </li>
+                <li tid="4">
+                    <a>游戏</a>
+                </li>
             </ul>
         </div>
         <ul class="list ranking-body" v-for="(item,index) in rankItems">
             <li>
                 <a href="" class="list-item in">
                     <div class="l">
-                        <LazyImage :src="item.pic" class="cover">
-                            <div class="rank" :class="index<3?'top':''">
-                                <span class="rank-num">{{index+1}}</span>
-                            </div>
-                        </LazyImage>
+                        <div class="top">
+                            <img v-lazyload :data-src="item.pic" class="cover">
+                        </div>
+                        <div class="rank" :class="index<3?'top':''">
+                            <span class="rank-num">{{index+1}}</span>
+                        </div>
+
                     </div>
                     <div class="r">
                         <div class="r-box">
                             <div class="title">{{item.title}}</div>
                             <div class="meta">
                                 <div class="up">
-                                    UP主：<span>{{item.author}}</span>
+                                    UP主：
+                                    <span>{{item.author}}</span>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +168,7 @@
 
 .list {
     padding: 10px;
-    a.list-item{
+    a.list-item {
         display: block;
         position: relative;
         margin-bottom: 20px;
@@ -242,6 +257,7 @@
         }
     }
 }
+
 .ranking-container {
     .ranking-body {
         padding-top: 20px;

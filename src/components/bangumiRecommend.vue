@@ -16,7 +16,9 @@
             <ul class="content-wrapper bangumi-wrapper" v-if="bangumiItems && bangumiItems.length > 0">
                 <li class="content-list bangumi-list" v-for="item in bangumiItems">
                     <router-link :to="item.url" class="item">
-                        <LazyImage class="top" :src="item.cover"></LazyImage>
+                        <div class="top">
+                            <img class="cover-img" v-lazyload :data-src="item.cover">
+                        </div>
                     </router-link>
                     <router-link :to="item.url" class="info clearfix">
                         <div class="bangumi-title text-overflow">{{item.title}}</div>

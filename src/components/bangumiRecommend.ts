@@ -1,16 +1,15 @@
 import * as Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import Api from '../api'
-import LazyImage from './common/LazyImage.vue'
 
 @Component({
-    components: { LazyImage }
+    components: {  }
 })
 export default class BangumiRecommend extends Vue {
     showError = false
     loading = true
     bangumiItems = new Array<BangumiInfo>()
-    
+
     mounted() {
         this.fetcData();
     }

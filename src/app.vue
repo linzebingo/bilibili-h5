@@ -10,18 +10,9 @@
             </div>
             <nav class="nav-bar">
                 <div class="nav-wrp">
-<<<<<<< HEAD
                     <router-link to="/index" class="logo"></router-link>
                     <router-link to="/history" class="cell"><i class="nav-icon icon-history"></i>历史</router-link>
                     <a href="javascript:void(0);" class="cell" @click="show_search=true"><i class="nav-icon icon-search"></i>搜索</a>
-=======
-                    <router-link to="/index"
-                                 class="logo"></router-link>
-                    <router-link to="/history"
-                                 class="cell"><i class="nav-icon icon-history"></i></router-link>
-                    <router-link to="/index"
-                                 class="cell"><i class="nav-icon icon-search"></i></router-link>
->>>>>>> 5d3029d3b9c1993498abe1330b19d8a341fc182e
                 </div>
             </nav>
         </div>
@@ -84,12 +75,7 @@
     })
     export default class App extends Vue {
         appload = false //结构页
-<<<<<<< HEAD
         show_search = false
-        
-=======
-
->>>>>>> 5d3029d3b9c1993498abe1330b19d8a341fc182e
         mounted(){
             this.appload = true
         }

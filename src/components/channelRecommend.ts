@@ -1,10 +1,9 @@
 import * as Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import Api from '../api'
-import LazyImage from './common/LazyImage.vue'
 
 @Component({
-    components: { LazyImage }
+    components: {  }
 })
 export default class BangumiRecommend extends Vue {
     loading = true

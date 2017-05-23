@@ -2,10 +2,9 @@ import * as Vue from 'vue'
 import Component from 'vue-class-component'
 import Tools from '../common/Tools'
 import Api from '../api'
-import LazyImage from './common/LazyImage.vue'
 
 @Component({
-    components: { LazyImage }
+    components: {  }
 })
 export default class HotRecommend extends Vue {
     recommendItems: Array<RecommendItem> = null

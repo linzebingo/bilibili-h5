@@ -1,10 +1,9 @@
 import * as Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import LazyImage from 'components/common/LazyImage.vue'
 import Api from '../api'
 
 @Component({
-    components: { LazyImage }
+    components: {  }
 })
 export default class Ranking extends Vue {
     rankItems = new Array<RankItem>()

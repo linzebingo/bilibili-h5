@@ -1,7 +1,7 @@
 import Index from './views/index.vue'
 import Video from './views/video.vue'
 import Space from './views/space.vue'
-import History from './views/history.vue'
+import History from './views/history'
 import Wrapper from './views/navWrapper.vue'
 import Channel from './views/channel.vue'
 import Ranking from './views/ranking.vue'
@@ -42,6 +42,11 @@ export default [
                 path: '/space',
                 component: Space,
                 meta: { title: '我的' }
+            },
+            {
+                path: '/history',
+                component: History,
+                meta: { title: '历史' }
             }
         ]
     },

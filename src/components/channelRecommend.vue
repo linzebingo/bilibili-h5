@@ -16,7 +16,9 @@
             <ul class="content-wrapper" v-if="!loading && !showError && channel.items && channel.items.length > 0">
                 <li class="content-list" v-for="item in channel.items">
                     <router-link :to="item.link" class="item">
-                        <LazyImage class="top" :src="item.pic"></LazyImage>
+                        <div class="top">
+                            <img class="cover-img" v-lazyload :data-src="item.pic">
+                        </div>
                     </router-link>
                     <router-link :to="item.link" class="info">
                         <div class="title">{{item.title}}</div>
@@ -33,8 +35,8 @@
                     </router-link>
                 </li>
             </ul>
-            </div>
         </div>
+    </div>
     </div>
 </template>
 
