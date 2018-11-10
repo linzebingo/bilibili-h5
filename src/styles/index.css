@@ -1,0 +1,172 @@
+@import 'reset.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.home__topArea {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+}
+.home__logo {
+  display: block;
+  margin-left: 36px;
+  width: 124px;
+}
+.home__openAppBtn {
+  display: block;
+  margin-right: 24px;
+  width: 160px;
+  height: 48px;
+  border: 1px solid #fb7299;
+  border-radius: 8px;
+  background-color: #fb7299;
+}
+.home__openAppBtn p {
+  font-size: 26px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.home__zone {
+  position: fixed;
+  height: 178px;
+  top: 78px;
+  z-index: 5;
+  overflow: hidden;
+}
+.home__divider {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  padding-top: 178px;
+}
+.home__law {
+  text-align: center;
+}
+
+.home__slider {
+  position: relative;
+  height: 220px;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+/* swipe */
+.swipe {
+  position: relative;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > a {
+  float: left;
+  width: 100%;
+  position: relative;
+  height: 220px;
+}
+
+.swipe-wrap > a img {
+  display: block;
+  position: relative;
+  /* width: 100%; */
+  height: 100%;
+  color: transparent;
+}
+
+.swipe .swipe-btn-wrapper {
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  z-index: 0;
+  width: 100%;
+  text-align: center;
+  height: 26px;
+  line-height: 26px;
+}
+
+.swipe .swipe-btn-wrapper .swipe-btn-list {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.swipe .swipe-btn-wrapper .swipe-btn-list a {
+  width: 10px;
+  height: 10px;
+  float: left;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 5px !important;
+}
+.swipe .swipe-btn-wrapper .swipe-btn-list a.on {
+  background-color: #de698c;
+}
+
+/* Item */
+.home__rankingFlowNormal {
+  padding: 0 12px;
+}
+.item {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 50%;
+  float: left;
+  margin-bottom: 32px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+.item::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.item__imgContainer {
+  height: 212px;
+  width: 100%;
+  position: relative;
+}
+
+.item__tv {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.item__info {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 32px;
+  padding-left: 16px;
+}
+
+.item__playIcon,
+.item__play,
+.item__danmuIcon,
+.item__view {
+  float: left;
+  color: #fff;
+}
