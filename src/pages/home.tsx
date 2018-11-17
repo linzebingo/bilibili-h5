@@ -1,14 +1,57 @@
 import * as React from 'react';
 import logo from '../assets/logo.svg';
+import fetchJsonp from 'fetch-jsonp';
 
-export default class HomePage extends React.Component<{}, { active: number }> {
+interface Video {
+  aid: string;
+  author: string;
+  coins: number;
+  duration: string;
+  mid: number;
+  pic: string;
+  play: number;
+  pts: number;
+  title: string;
+  video_review: number;
+}
+
+interface Banner {
+  id: number;
+  name: string;
+  pic: string;
+  url: string;
+}
+
+interface HomePageStates {
+  active: number;
+  bannerList: Array<Banner>;
+  videoList: Array<Video>;
+}
+export default class HomePage extends React.Component<{}, HomePageStates> {
   slider: any;
 
   constructor(props: any) {
     super(props);
-    this.state = { active: 0 };
+    this.state = { active: 0, videoList: [], bannerList: [] };
   }
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    fetchJsonp('https://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=7&id=1695')
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ bannerList: data.data }, this.initSwipe);
+      });
+    fetchJsonp('https://api.bilibili.com/x/web-interface/ranking?rid=0&day=3&jsonp=jsonp')
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({ videoList: data.data.list });
+      });
+  }
+
+  initSwipe() {
     const mySwipe = new Swipe(this.slider, {
       startSlide: 0,
       auto: 3000,
@@ -21,24 +64,10 @@ export default class HomePage extends React.Component<{}, { active: number }> {
       transitionEnd: (index, element) => {},
     });
   }
+
   render() {
-    const Item = (
-      <div className="item">
-        <div className="item__imgContainer">
-          <img
-            className="item__tv"
-            src="https://i2.hdslb.com/bfs/archive/50d36b0a0e2ef7e2ea2b8e72372db563bf8c3caf.jpg@320w_200h.webp"
-            alt=""
-          />
-          <div className="item__info">
-            <div className="item__playIcon">icon</div>
-            <div className="item__play">94.1万</div>
-            <div className="item__danmuIcon">icon</div>
-            <div className="item__view">2768</div>
-          </div>
-        </div>
-      </div>
-    );
+    const { videoList, bannerList } = this.state;
+
     return (
       <div className="home">
         <div className="home__topArea">
@@ -52,28 +81,40 @@ export default class HomePage extends React.Component<{}, { active: number }> {
         <div className="home__slider">
           <div id="slider" className="swipe" ref={el => (this.slider = el)}>
             <div className="swipe-wrap">
-              <a>
-                <img src="https://i0.hdslb.com/bfs/archive/ad709e860662133d22139de96fc45132f5526ff7.jpg@480w_300h.webp" />
-              </a>
-              <a>
-                <img src="https://i0.hdslb.com/bfs/archive/550adb4bba5cb0141c6bfaf31937e5042066c160.jpg@480w_300h.webp" />
-              </a>
-              <a>
-                <img src="https://i0.hdslb.com/bfs/archive/9e47195476bba9f79f5a70214d918339646938db.jpg@480w_300h.webp" />
-              </a>
+              {bannerList.map(banner => (
+                <a key={banner.id} href={banner.url}>
+                  <img src={banner.pic} alt={banner.name} />
+                </a>
+              ))}
             </div>
             <div className="swipe-btn-wrapper">
               <div className="swipe-btn-list">
-                <a href="" className={this.state.active === 0 ? 'on' : 'off'} />
-                <a href="" className={this.state.active === 1 ? 'on' : 'off'} />
-                <a href="" className={this.state.active === 2 ? 'on' : 'off'} />
+                {bannerList.map((_, index) => (
+                  <a key={index} className={this.state.active === index ? 'on' : 'off'} />
+                ))}
               </div>
             </div>
           </div>
         </div>
         <div className="home__rankingFlowNormal">
-          {Item}
-          {Item}
+          {videoList.map(video => {
+            return (
+              <a key={video.aid} className="item" href={`https://m.bilibili.com/video/av${video.aid}.html`}>
+                <div className="item__imgContainer">
+                  <img className="item__tv" src={video.pic} alt={video.title} />
+                  <div className="item__info">
+                    <div className="item__playIcon">icon</div>
+                    <div className="item__play">{video.play}</div>
+                    <div className="item__danmuIcon">icon</div>
+                    <div className="item__view">{video.video_review}</div>
+                  </div>
+                </div>
+                <div className="item__title">
+                  <p>{video.title}</p>
+                </div>
+              </a>
+            );
+          })}
         </div>
         <div className="home__law">
           <p>哔哩哔哩 沪ICP备13002172号-3</p>

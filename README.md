@@ -24,3 +24,5 @@ $ npm run build
     JavaScript output.
 - other stack
   - [Yarn](https://yarnpkg.com) - Fast, reliable, and secure dependency management.
+  - [Referer Control](https://chrome.google.com/webstore/detail/referer-control/hnkcfpcejkafcihlgbojoidoihckciin?utm_source=chrome-ntp-icon) -
+    A Chrome extension, which can control the HTTP Referer on a per-site basis.
